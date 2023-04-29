@@ -5,3 +5,38 @@
 @use "./styles/partials/button" as *;
 @use "./styles/partials/input" as *;
 @use "./styles/partials/typography.scss" as *;
+
+// -- global resets --
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  @include small-typography;
+  @include large-typography;
+  font-family: $primary-typeface-regular;
+  font-family: $primary-typeface-bold;
+  font-family: $primary-typeface-light;
+  font-family: $primary-typeface-italic;
+  font-family: $secondary-typeface-regular;
+  font-family: $secondary-typeface-bold;
+  font-family: $secondary-typeface-black;
+  color: $primary-color-black;
+  background-color: $primary-color-white;
+  display: flex;
+  min-height: 100vh;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
