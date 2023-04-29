@@ -5,3 +5,118 @@
 @use "../../styles/partials/button" as *;
 @use "../../styles/partials/input" as *;
 @use "../../styles/partials/typography.scss" as *;
+
+.nav {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+        align-items: center;
+    }
+  &__wrapper {
+    @include wrapper-props {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        @include tablet{
+            flex-direction: row;
+        }
+    }
+  }
+
+  //header styles
+  &__header-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  &__logo-container {
+    width: 20rem;
+
+    @include tablet {
+        width: 20rem;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+  }
+
+  &__menu-container {
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / span 3;
+  }
+
+  &__menu-icon {
+    display: block;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  //nav styles
+  &__container {
+    @include wrapper-props {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 3.2rem;
+        width: 100%;
+    
+        @include tablet {
+          flex-direction: row;
+          align-items: center;
+        }
+    }
+  }
+
+  &__container--open {
+    display: block;
+  }
+
+  &__container--closed {
+    display: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    gap: .8rem;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 3.2rem;
+
+    }
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__btn--primary {
+    @include button($primary-color-black, $primary-color-white) {
+    }
+  }
+
+  &__btn--secondary {
+    @include button($primary-color-white, $primary-color-black) {
+    }
+  }
+}
