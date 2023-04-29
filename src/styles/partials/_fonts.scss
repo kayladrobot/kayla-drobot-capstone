@@ -8,7 +8,14 @@
   @font-face {
     font-family: "Inter-Bold";
     src: url("../../assets/fonts/Inter-Bold.ttf") format("truetype");
-    font-weight: bold;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Inter-Black";
+    src: url("../../assets/fonts/Inter-Black.ttf") format("truetype");
+    font-weight: normal;
     font-style: normal;
   }
   
@@ -18,7 +25,21 @@
     font-weight: normal;
     font-style: normal;
   }
-  
+
+  @font-face {
+    font-family: "EditorialNew-Light";
+    src: url("../../assets/fonts/PPEditorialNew-Ultralight.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "EditorialNew-Light-Italic";
+    src: url("../../assets/fonts/PPEditorialNew-UltralightItalic.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
   @font-face {
     font-family: "EditorialNew-Bold";
     src: url("../../assets//fonts/PPEditorialNew-Ultrabold.otf") format("opentype");
