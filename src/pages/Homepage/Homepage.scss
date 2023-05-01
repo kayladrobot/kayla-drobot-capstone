@@ -7,28 +7,56 @@
 @use "../../styles/partials/typography.scss" as *;
 
 .home {
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.2rem;
+    padding: 3.2rem 1.6rem;
+    border-bottom: 0.1rem solid $primary-color-black;
 
-    &__section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 3.2rem 1.6rem;
-        border-bottom: .1rem solid $primary-color-black;
-
-        @include tablet {
-            padding: 6.4rem 4.8rem;
-        }
+    @include tablet {
+      padding: 6.4rem 4.8rem;
     }
+  }
 
-    &__hero-header{
-        text-align: center;
-    }
+  &__copy-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    align-items: center;
+  }
 
-    &__creative-card {
-        background-color: $primary-color-black;
-        opacity: .2;
-        height: 1.6rem;
-        width: .8rem;
-    }
+  &__copy-header {
+    text-align: center;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+  }
+
+  &__creative-card {
+    background-color: $primary-color-black;
+    opacity: 0.2;
+    height: 1.6rem;
+    width: 0.8rem;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+  }
+
+  &__btn--primary {
+    @include button($primary-color-black, $primary-color-white);
+  }
+
+  &__btn--secondary {
+    @include button($primary-color-white, $primary-color-black);
+  }
 }
