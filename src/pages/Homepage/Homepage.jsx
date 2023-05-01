@@ -1,4 +1,5 @@
 import React from "react";
+import CreativeCarousel from "../../components/CreativeCarousel/CreativeCarousel";
 import "./Homepage.scss";
 
 function Homepage() {
@@ -22,10 +23,7 @@ function Homepage() {
           <h2>Discover Vancouver Creatives</h2>
         </div>
         <div className="home__cards">
-          <div className="home__creative-card"></div>
-          <div className="home__creative-card"></div>
-          <div className="home__creative-card"></div>
-          <div className="home__creative-card"></div>
+          <CreativeCarousel/>
         </div>
         <button className="home__btn--primary">View More Creatives</button>
       </section>

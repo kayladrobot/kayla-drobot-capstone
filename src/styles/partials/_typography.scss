@@ -101,13 +101,13 @@
       text-transform: uppercase;
     }
 
-    .p-large {
-      font-family: $secondary-typeface-bold;
+    .p--large {
+      font-family: $secondary-typeface-black;
       font-size: 1.8rem;
       line-height: 2rem;
     }
 
-    .p-medium {
+    .p--medium {
       font-family: $secondary-typeface-regular;
       font-size: 1.8rem;
       line-height: 2rem;
@@ -119,7 +119,7 @@
       line-height: 1.8rem;
     }
 
-    .p-small {
+    .p--small {
       font-family: $secondary-typeface-regular;
       font-size: 1.4rem;
       line-height: 1.6rem;
