@@ -1,0 +1,71 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/button" as *;
+@use "../../styles/partials/input" as *;
+@use "../../styles/partials/typography.scss" as *;
+
+.home {
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.2rem;
+    padding: 3.2rem 1.6rem;
+    border-bottom: 0.1rem solid $primary-color-black;
+    text-align: center;
+
+    @include tablet {
+      padding: 6.4rem 4.8rem;
+    }
+  }
+
+  &__copy-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+  }
+
+  &__creative-card {
+    background-color: $primary-color-black;
+    opacity: 0.2;
+    height: 1.6rem;
+    width: 0.8rem;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__item-wrapper {
+    transition: all .25s ease-in-out;
+  }
+
+  &__item-wrapper:hover {
+    text-decoration: underline;
+  }
+
+  &__btn--primary {
+    @include button($primary-color-black, $primary-color-white);
+  }
+
+  &__btn--secondary {
+    @include button($primary-color-white, $primary-color-black);
+  }
+}

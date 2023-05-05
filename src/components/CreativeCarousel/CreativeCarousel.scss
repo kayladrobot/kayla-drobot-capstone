@@ -1,0 +1,103 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/button" as *;
+@use "../../styles/partials/input" as *;
+@use "../../styles/partials/typography.scss" as *;
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
+  position: relative;
+
+  @include tablet {
+    flex-direction: row;
+  }
+
+  &__card {
+    position: relative;
+    width: 25rem;
+    height: 38rem;
+  }
+
+  &__card-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+  }
+
+  &__card-copy {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    text-align: center;
+  }
+
+  &__card:hover &__card-content {
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+  }
+
+  &__card--front,
+  &__card--back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    padding: 1.6rem 1.2rem;
+    border: 0.1rem solid $primary-color-black;
+    border-radius: 2rem;
+    background-color: $primary-color-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__card--front {
+    display: flex;
+    text-align: left;
+  }
+
+  &__card--back {
+    background: $primary-color-black;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url("../../assets/images/europeana--kUYkiWWM6E-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+  &__card--back-header {
+    position: absolute;
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__category {
+    padding: 0.4rem;
+    border: 0.1rem solid $primary-color-black;
+    border-radius: 0.5rem;
+  }
+}

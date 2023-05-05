@@ -43,7 +43,7 @@ function Navigation() {
 
       <div className={`nav__container ${!isOpen ? "nav__container--closed" : "nav__container--open"}`}>
         <nav className="nav__content">
-          <Link to="/" className="nav__item-wrapper">
+          <Link to="/creative" className="nav__item-wrapper">
             <h5 className="nav__item">Creatives</h5>
           </Link>
           <Link to="/" className="nav__item-wrapper">
@@ -80,7 +80,7 @@ return (
 
     <div className={`nav__container`}>
       <nav className="nav__content">
-        <Link to="/" className="nav__item-wrapper">
+        <Link to="/creative" className="nav__item-wrapper">
           <h5 className="nav__item">Creatives</h5>
         </Link>
         <Link to="/" className="nav__item-wrapper">

@@ -26,10 +26,10 @@
     }
 
     h4 {
-      font-family: $secondary-typeface-black;
+      font-family: $primary-typeface-regular;
       font-size: 2.4rem;
       line-height: 2.8rem;
-      text-transform: uppercase;
+      font-weight: 300;
     }
 
     h5 {
@@ -39,13 +39,14 @@
       text-transform: uppercase;
     }
 
-    .p-large {
-      font-family: $secondary-typeface-bold;
-      font-size: 1.8rem;
+    .p--large {
+      font-family: $secondary-typeface-black;
+      font-size: 1.6rem;
       line-height: 2rem;
+      text-transform: uppercase;
     }
 
-    .p-medium {
+    .p--medium {
       font-family: $secondary-typeface-regular;
       font-size: 1.8rem;
       line-height: 2rem;
@@ -57,9 +58,9 @@
       line-height: 1.8rem;
     }
 
-    .p-small {
+    .p--small {
       font-family: $secondary-typeface-regular;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       line-height: 1.6rem;
     }
 
@@ -74,39 +75,39 @@
     @content;
     h1 {
       font-family: $primary-typeface-light;
-      font-size: 9.6rem;
+      font-size: 7.2rem;
       line-height: 8.4rem;
       font-weight: 300;
     }
 
     h2 {
       font-family: $primary-typeface-light;
-      font-size: 7.2rem;
+      font-size: 6.4rem;
       line-height: 7.8rem;
       font-weight: 300;
     }
 
     h3 {
       font-family: $primary-typeface-light;
-      font-size: 3.2rem;
-      line-height: 3.6rem;
+      font-size: 4.8rem;
+      line-height: 5.2rem;
       font-weight: 300;
     }
 
     h4 {
-      font-family: $secondary-typeface-black;
+      font-family: $primary-typeface-regular;
       font-size: 2.4rem;
       line-height: 2.8rem;
-      text-transform: uppercase;
+      font-weight: 300;
     }
 
-    .p-large {
-      font-family: $secondary-typeface-bold;
+    .p--large {
+      font-family: $secondary-typeface-black;
       font-size: 1.8rem;
       line-height: 2rem;
     }
 
-    .p-medium {
+    .p--medium {
       font-family: $secondary-typeface-regular;
       font-size: 1.8rem;
       line-height: 2rem;
@@ -118,9 +119,9 @@
       line-height: 1.8rem;
     }
 
-    .p-small {
+    .p--small {
       font-family: $secondary-typeface-regular;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       line-height: 1.6rem;
     }
 
