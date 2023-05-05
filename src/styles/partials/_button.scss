@@ -1,32 +1,53 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
+
 @mixin button($bg-color, $text-color) {
   background-color: $bg-color;
   color: $text-color;
-  display: inline-block;
+  border: .1rem solid $primary-color-black;
+  border-radius: .5rem;
+  outline: none;
+  display: block;
+  padding: 0 1.6rem;
   width: 100%;
+  margin-bottom: 0;
   height: 3.6rem;
-  border-radius: 2rem;
-  border: none;
+  font-size: 1.5rem;
   font-family: inherit;
-  font-weight: 600;
+  text-transform: uppercase;
   white-space: nowrap;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 0.4rem;
   cursor: pointer;
   text-decoration: none;
+  transition: all .5s ease-in-out;
   @content;
 
-  @include tablet {
-    margin-bottom: 0;
-    width: fit-content;
-    padding: 0 1.6rem;
+  &:hover {
+    border-radius: 2rem;
   }
+}
+
+@mixin button__nav($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: .1rem solid $primary-color-black;
+  border-radius: .5rem;
+  outline: none;
+  display: block;
+  padding: 0 1.6rem;
+  width: 100%;
+  margin-bottom: 0;
+  height: 3.6rem;
+  font-size: 1.3rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .5s ease-in-out;
+  @content;
 
   &:hover {
-    background-color: darken($bg-color, 10%);
+    border-radius: 2rem;
   }
 }

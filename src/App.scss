@@ -31,8 +31,8 @@ body {
   font-family: $secondary-typeface-black;
   color: $primary-color-black;
   background-color: $primary-color-white;
-  display: flex;
   min-height: 100vh;
+  width: 100%;
 }
 
 .App {
