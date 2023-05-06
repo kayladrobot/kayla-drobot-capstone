@@ -1,8 +1,35 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
+// // ------ import api base URL -------
+import apiData from "../../data/apiData";
+
 import CreativeCarousel from "../../components/CreativeCarousel/CreativeCarousel";
 import "./Homepage.scss";
 
 function Homepage() {
+  const [loading, setLoading] = useState(true);
+  const [creativeData, setCreativeData] = useState([]);
+
+  //   // -----  useEffect/ apiData -----
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await apiData.get("/creatives");
+        const creatives = response.data;
+        setCreativeData(creatives);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <main className="home">
       <section className="home__section home__hero">
@@ -23,7 +50,7 @@ function Homepage() {
           <h2>Discover Vancouver Creatives</h2>
         </div>
         <div className="home__cards">
-          <CreativeCarousel/>
+          <CreativeCarousel creativeData={creativeData}/>
         </div>
         <button className="home__btn--primary">View More Creatives</button>
       </section>

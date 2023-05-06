@@ -9,11 +9,18 @@
 .carousel {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1.6rem;
   position: relative;
+  width: 100vw;
 
   @include tablet {
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 
   &__card {
@@ -64,7 +71,6 @@
   }
 
   &__card--back {
-    background: $primary-color-black;
     color: white;
     transform: rotateY(180deg);
     display: flex;
@@ -72,7 +78,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-image: url("../../assets/images/europeana--kUYkiWWM6E-unsplash.jpg");
+    // background-image: url("../../assets/images/europeana--kUYkiWWM6E-unsplash.jpg");
     background-position: center;
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
@@ -85,14 +91,12 @@
 
   &__categories {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
 
-    @include tablet {
-      flex-direction: row;
-    }
   }
 
   &__category {
