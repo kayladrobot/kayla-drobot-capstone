@@ -1,11 +1,9 @@
-
-
 [
     {
         "id": 1,
         "name": "Sarah Jones",
         "bio": "Meet Sarah Jones, an up-and-coming painter based in New York City. Sarah's passion for art began at an early age, and she honed her skills by studying at some of the most prestigious art schools in the country. Sarah's style is characterized by bold brushstrokes and vibrant colors, which she uses to capture the energy and spirit of the urban landscape. Her work has been exhibited in galleries across the country, and she has won several awards for her unique and captivating paintings. When she's not in the studio, Sarah enjoys exploring the city's art scene and drawing inspiration from the vibrant culture and diverse communities around her. With her talent and dedication, Sarah is sure to make a lasting impact on the world of contemporary art.",
-        "email": "johndoe@example.com",
+        "email": "sarahjones@gmail.com",
         "location": "Vancouver",
         "status": "Available",
         "title": "Visual Artist",
@@ -37,5 +35,72 @@
             }]
     },
     {
+        "id": 1,
+        "name": "James L. Holt",
+        "bio": "Meet James, an up-and-coming painter based in New York City. Sarah's passion for art began at an early age, and she honed her skills by studying at some of the most prestigious art schools in the country. Sarah's style is characterized by bold brushstrokes and vibrant colors, which she uses to capture the energy and spirit of the urban landscape. Her work has been exhibited in galleries across the country, and she has won several awards for her unique and captivating paintings. When she's not in the studio, Sarah enjoys exploring the city's art scene and drawing inspiration from the vibrant culture and diverse communities around her. With her talent and dedication, Sarah is sure to make a lasting impact on the world of contemporary art.",
+        "email": "jamesholt@gmail.com",
+        "location": "Vancouver",
+        "status": "Available",
+        "title": "UI Designer",
+        "rate": "$50/hr",
+        "profile": "",
+        "available": "20",
+        "education": [{
+            "0": [
+                {
+                    "name": "Emily Carr University",
+                    "degree": "Bachelor of Communication Design",
+                    "start-date": "2008",
+                    "end-date": "2012"
+                }
+            ]
+        }],
+        "labels": [{
+                "0": "UI Designer",
+                "1": "Web Design",
+                "2": "UX Designer"
+            }],
+            "image": [{
+                "0": "",
+                "1": "./images/2/1.jpg",
+                "2": "./images/2/2.jpg",
+                "3": "./images/2/3.jpg",
+                "4": "./images/2/4.jpg"
+            }]
+    },
+    {
+        "id": 1,
+        "name": "Reni Brathler",
+        "bio": "Meet Reni, an up-and-coming painter based in New York City. Sarah's passion for art began at an early age, and she honed her skills by studying at some of the most prestigious art schools in the country. Sarah's style is characterized by bold brushstrokes and vibrant colors, which she uses to capture the energy and spirit of the urban landscape. Her work has been exhibited in galleries across the country, and she has won several awards for her unique and captivating paintings. When she's not in the studio, Sarah enjoys exploring the city's art scene and drawing inspiration from the vibrant culture and diverse communities around her. With her talent and dedication, Sarah is sure to make a lasting impact on the world of contemporary art.",
+        "email": "reni@gmail.com",
+        "location": "Vancouver",
+        "status": "Available",
+        "title": "Visual Artist",
+        "rate": "$45/hr",
+        "profile": "",
+        "available": "30",
+        "education": [{
+            "0": [
+                {
+                    "name": "University of California",
+                    "degree": "Bachelor of Arts",
+                    "start-date": "2004",
+                    "end-date": "2007"
+                }
+            ]
+        }],
+        "labels": [{
+                "0": "Visual Artist",
+                "1": "Creative",
+                "2": "Painter",
+                "3": "Illustrator"
+            }],
+            "image": [{
+                "0": "",
+                "1": "./images/3/1.jpg",
+                "2": "./images/3/2.jpg",
+                "3": "./images/3/3.jpg",
+                "4": "./images/3/4.jpg"
+            }]
     }
 ]
