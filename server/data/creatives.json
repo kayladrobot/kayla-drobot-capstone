@@ -8,7 +8,7 @@
     "status": "Available",
     "title": "Visual Artist",
     "rate": "$40/hr",
-    "profile": "../public/images/1/profile.jpg",
+    "profile": "/images/1/profile.jpg",
     "available": "Available",
     "education": [
       {
@@ -24,11 +24,10 @@
     "labels": ["designer", "illustrator", "visual artist", "branding", "typography"],
     "image": [
       {
-        "0": "",
-        "1": "../public/images/1/1.jpg",
-        "2": "../public/images/1/2.jpg",
-        "3": "../public/images/1/3.jpg",
-        "4": "../public/images/1/4.jpg"
+        "0": "/images/1/4.jpg",
+        "1": "/images/1/1.jpg",
+        "2": "/images/1/2.jpg",
+        "3": "/images/1/3.jpg"
       }
     ]
   },
@@ -57,11 +56,10 @@
     "labels": ["web design", "responsive design", "HTML", "CSS", "JavaScript", "designer", "ui designer", "ux designer"],
     "image": [
       {
-        "0": "",
+        "0": "../public/images/2/4.jpg",
         "1": "../public/images/2/1.jpg",
         "2": "../public/images/2/2.jpg",
-        "3": "../public/images/2/3.jpg",
-        "4": "../public/images/2/4.jpg"
+        "3": "../public/images/2/3.jpg"
       }
     ]
   },
@@ -90,11 +88,10 @@
     "labels": ["illustrator", "graphic designer", "designer","branding", "typography"],
     "image": [
       {
-        "0": "",
+        "0": "../public/images/3/4.jpg",
         "1": "../public/images/3/1.jpg",
         "2": "../public/images/3/2.jpg",
-        "3": "../public/images/3/3.jpg",
-        "4": "../public/images/3/4.jpg"
+        "3": "../public/images/3/3.jpg"
       }
     ]
   },
@@ -123,11 +120,10 @@
     "labels": ["web design", "responsive design", "HTML", "CSS", "JavaScript", "designer", "ui designer", "ux designer"],
     "image": [
       {
-        "0": "",
+        "0": "../public/images/4/4.jpg",
         "1": "../public/images/4/1.jpg",
         "2": "../public/images/4/2.jpg",
-        "3": "../public/images/4/3.jpg",
-        "4": "../public/images/4/4.jpg"
+        "3": "../public/images/4/3.jpg"
       }
     ]
   },
@@ -156,11 +152,10 @@
     "labels": ["web design", "responsive design", "HTML", "CSS", "JavaScript", "designer", "ui designer"],
     "image": [
       {
-        "0": "",
+        "0": "../public/images/5/4.jpg",
         "1": "../public/images/5/1.jpg",
         "2": "../public/images/5/2.jpg",
-        "3": "../public/images/5/3.jpg",
-        "4": "../public/images/5/4.jpg"
+        "3": "../public/images/5/3.jpg"
       }
     ]
   },
@@ -189,11 +184,10 @@
     "labels": ["creative", "designer", "graphic design", "print", "digital", "branding", "typography"],
     "image": [
       {
-        "0": "",
+        "0": "../public/images/6/4.jpg",
         "1": "../public/images/6/1.jpg",
         "2": "../public/images/6/2.jpg",
-        "3": "../public/images/6/3.jpg",
-        "4": "../public/images/6/4.jpg"
+        "3": "../public/images/6/3.jpg"
       }
     ]
   }
