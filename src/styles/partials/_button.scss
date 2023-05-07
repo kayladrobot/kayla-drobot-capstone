@@ -1,5 +1,6 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 
 @mixin button($bg-color, $text-color) {
@@ -8,13 +9,15 @@
   border: .1rem solid $primary-color-black;
   border-radius: .5rem;
   outline: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 1.6rem;
   width: fit-content;
   margin-bottom: 0;
   height: 3.6rem;
   font-size: 1.5rem;
-  font-family: inherit;
+  font-family: $secondary-typeface-black;
   text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
@@ -50,4 +53,31 @@
   &:hover {
     border-radius: 2rem;
   }
+}
+
+  @mixin button--quiz {
+    background-color: $primary-color-white;
+    color: $primary-color-black;
+    border: .1rem solid $primary-color-black;
+    border-radius: .5rem;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.6rem;
+    width: 25rem;
+    margin-bottom: 0;
+    height: 3.6rem;
+    font-size: 1.5rem;
+    font-family: $secondary-typeface-black;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .5s ease-in-out;
+    @content;
+  
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      box-shadow: .1rem .1rem .1rem rgb(0 0 0 / 0.2);
+    }
 }

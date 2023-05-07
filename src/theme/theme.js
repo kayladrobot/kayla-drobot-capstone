@@ -26,16 +26,9 @@ export const boxStyle = {
   borderRadius: { tablet: 1 },
 };
 
-export const flexStyle = {
-  display: "flex",
-  justifyContent: "flex-end",
-  cursor: "pointer",
-};
-
 export const buttonContainer = {
   display: "flex",
   flexDirection: "row",
-  justifyContent: { mobile: "space-between", tablet: "flex-end" },
   columnGap: { mobile: 1, tablet: 2 },
 };
 
@@ -59,17 +52,17 @@ export const cancelButton = {
   },
 };
 
-export const deleteButton = {
-  borderRadius: 20,
-  backgroundColor: "#C94515",
-  width: { mobile: "100%", tablet: 72 },
-  height: { mobile: 36, tablet: 38 },
-  fontStyle: "normal",
-  fontWeight: 600,
-  fontSize: 13,
-  textTransform: "none",
-  boxShadow: "unset",
-  "&:hover": {
-    backgroundColor: "#232940",
-  },
-};
+export const close = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+}
+
+export const defaultButton = {
+    borderRadius: ".5rem",
+    backgroundColor: "#FFFFFF",
+    color: "#000000",
+    fontSize: "1.5rem",
+    border: ".1rem solid #000000",
+    padding: ".8rem 4.8rem",
+  };

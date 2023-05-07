@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // import styles
-import CreativeModal from "../CreativeModal/CreativeModal";
+import Quiz from "../Quiz/Quiz";
 import "./Navigation.scss";
 import logo from "../../assets/logo/Lookbook.svg";
 import menu from "../../assets/icons/menu-white.svg";
@@ -66,14 +66,14 @@ function Navigation() {
         <div className="nav__btn-wrapper">
             <button className="nav__btn--secondary" onClick={handleOpen} >Take the Quiz</button>
             {open && (
-            <CreativeModal
+            <Quiz
               open={open}
               handleClose={handleClose}
             />
           )}
           <button className="nav__btn--primary" onClick={handleOpen} >Make a Match</button>
             {open && (
-            <CreativeModal
+            <Quiz
               open={open}
               handleClose={handleClose}
             />
@@ -111,14 +111,14 @@ return (
       <div className="nav__btn-wrapper">
             <button className="nav__btn--secondary" onClick={handleOpen} >Take the Quiz</button>
             {open && (
-            <CreativeModal
+            <Quiz
               open={open}
               handleClose={handleClose}
             />
           )}
           <button className="nav__btn--primary" onClick={handleOpen} >Make a Match</button>
             {open && (
-            <CreativeModal
+            <Quiz
               open={open}
               handleClose={handleClose}
             />
