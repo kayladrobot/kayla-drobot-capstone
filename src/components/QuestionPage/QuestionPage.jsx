@@ -7,8 +7,6 @@ import { theme, boxStyle } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
 import "./QuestionPage.scss"
 
-
-
 const QuestionPage = ({
   open,
   progressBarStyle,
@@ -17,11 +15,6 @@ const QuestionPage = ({
   handleClose,
   handlePreviousQuestion,
   handleNextQuestion,
-  handleAnswer,
-  choices,
-  question,
-  totalQuestions, 
-  handleSubmit
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -43,13 +36,7 @@ const QuestionPage = ({
                     </div>
                     <button
                       className="modal__progress--back"
-                      onClick={handlePreviousQuestion}
-                    >
-                      <img
-                        src={arrow}
-                        alt="back arrow"
-                        className="arrow-icon"
-                      />
+                      onClick={handlePreviousQuestion}>
                       Back
                     </button>
                   </div>

@@ -1,14 +1,31 @@
 import * as React from "react";
-// import { useState, useEffect } from "react";
+import { useState } from "react";
 import { theme, endStyle } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
+import MatchPage from "../MatchPage/MatchPage";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+
 import closeicon from "../../assets/icons/close-24px.svg";
-import arrow from "../../assets/icons/arrow_back-24px.svg";
+import apiData from "../../data/apiData";
 import "./QuestionSubmit.scss";
 
-const SubmitPage = ({ open, handleSubmit, handleClose, close }) => {
+const SubmitPage = ({ open, selectedAnswers, handleClose, quizData}) => {
+  const [showMatches, setShowMatches] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await apiData.post("/answers", {
+        answers: selectedAnswers,
+      });
+      console.log(response.data);
+      setShowMatches(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Modal open={open}>
@@ -31,7 +48,7 @@ const SubmitPage = ({ open, handleSubmit, handleClose, close }) => {
                 <button onClick={handleSubmit} className="submit__button">
                   View Matches
                 </button>
-                <button onClick={close} className="submit__button--close">
+                <button onClick={handleClose} className="submit__button--close">
                   Back to Homepage
                 </button>
               </div>
@@ -39,6 +56,10 @@ const SubmitPage = ({ open, handleSubmit, handleClose, close }) => {
           </div>
         </Box>
       </Modal>
+      {showMatches && <MatchPage open={showMatches}
+        selectedAnswers={selectedAnswers}
+        handleClose={handleClose}
+        quizData={quizData} />}
     </ThemeProvider>
   );
 };

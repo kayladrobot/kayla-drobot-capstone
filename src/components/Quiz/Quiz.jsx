@@ -57,24 +57,10 @@ function Quiz({ open, handleClose }) {
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await apiData.post("/answers", {
-        answers: selectedAnswers,
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-    handleClose();
-    return false;
-  };
-
   return (
     <>
       {quizCompleted ? (
-        <SubmitPage handleSubmit={handleSubmit} open={open} handleClose={handleClose}/>
+        <SubmitPage selectedAnswers={selectedAnswers} open={open} handleClose={handleClose} quizData={quizData}/>
       ) : (
         <QuestionPage 
           progressBarStyle={progressBarStyle}
