@@ -5,6 +5,7 @@ import close from "../../assets/icons/close-24px.svg";
 import arrow from "../../assets/icons/arrow_back-24px.svg";
 import { theme, boxStyle } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
+import "./QuestionPage.scss"
 
 
 

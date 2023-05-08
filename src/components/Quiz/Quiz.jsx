@@ -5,7 +5,7 @@ import "./Quiz.scss";
 // // ------ import api base URL -------
 import apiData from "../../data/apiData";
 import QuestionPage from "../QuestionPage/QuestionPage"
-import EndPage from "../QuestionEndPage/QuestionEndPage"
+import SubmitPage from "../QuestionSubmit/QuestionSubmit"
 
 function Quiz({ open, handleClose }) {
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -74,7 +74,7 @@ function Quiz({ open, handleClose }) {
   return (
     <>
       {quizCompleted ? (
-        <EndPage handleSubmit={handleSubmit} open={open}/>
+        <SubmitPage handleSubmit={handleSubmit} open={open} handleClose={handleClose}/>
       ) : (
         <QuestionPage 
           progressBarStyle={progressBarStyle}
