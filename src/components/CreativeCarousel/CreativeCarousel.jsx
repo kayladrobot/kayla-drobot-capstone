@@ -23,9 +23,12 @@ function CreativeCarousel({ creativeData }) {
                 ))}
               </div>
             </div>
-            <div className="carousel__card--back" style={{ backgroundImage: `url(${item.profile})` }}>
+            {item.image.map((image) => (
+              <div className="carousel__card--back">
               <h4>{item.name}</h4>
-            </div>
+                <img src={image[0]} alt="test" className="carousel__card-img" />
+              </div>
+            ))}
           </div>
         </div>
       ))}

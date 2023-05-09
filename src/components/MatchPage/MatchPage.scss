@@ -1,7 +1,19 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/button" as *;
+@use "../../styles/partials/input" as *;
+@use "../../styles/partials/typography.scss" as *;
+
+
 .match {
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 3.2rem;
     
     &__close-icon {
         display: flex;
@@ -12,4 +24,74 @@
     &__list {
         display: flex;
     }
+
+    &__creative-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+
+    &__creative-img {
+        background-color: red;
+        width: 30rem;
+        height: 30rem;
+    }
+
+    &__creative {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+        justify-content: center;
+        align-items: center;
+        padding: 3.2rem;
+        border: .1rem solid $primary-color-black;
+        border-radius: 2.5rem;
+        width: fit-content;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__creative-cta {
+        display: flex;
+        justify-content: center;
+        gap: 1.6rem;
+    }
+
+
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__category-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  &__category {
+    padding: 0.4rem;
+    border: 0.1rem solid $primary-color-black;
+    border-radius: 0.5rem;
+  }
+
+  &__button-container {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  &__button-next {
+    @include button($primary-color-black, $primary-color-white)
+  }
+
+  &__button-back {
+    @include button($primary-color-white, $primary-color-black)
+  }
+
+
 }
