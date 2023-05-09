@@ -1,16 +1,22 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 // ---- input mixin -----
 @mixin form-input-styles {
     color: $primary-color-black;
     border-radius: 2rem;
-    border: 1px solid $secondary-color-cloud;
+    border: 1px solid $primary-color-black;
     letter-spacing: 0.04rem;
     font-family: inherit;
     padding: 0 1.6rem;
-    width: 100%;
+    width: auto;
     height: 3.6rem;
+    @content;
   
     &::placeholder {
-      color: $secondary-color-slate;
+      color: $primary-color-black;
+      opacity: .5;
     }
   
     &:focus {
@@ -19,7 +25,7 @@
     }
   
     @include tablet {
-      width: 28.7rem;
+      width: 100%;
       height: 3.8rem;
     }
   

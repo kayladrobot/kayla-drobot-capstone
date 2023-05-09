@@ -44,7 +44,6 @@
 
   &__logo-container {
     width: 100%;
-    transition: all .25s ease-in-out;
 
     @include tablet {
       width: 100%;
@@ -53,14 +52,6 @@
 
   &__logo {
     width: 100%;
-  }
-
-  &__logo-container:hover {
-    transform: rotateX(180deg);
-
-    @include tablet {
-      width: 20rem;
-    }
   }
 
   &__menu-container {

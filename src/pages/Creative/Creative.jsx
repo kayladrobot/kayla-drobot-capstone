@@ -1,6 +1,7 @@
 import React from "react";
 import "./Creative.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import CreativeCard from "../../components/CreativeCard/CreativeCard"
 
 function Creative() {
   
@@ -10,7 +11,7 @@ function Creative() {
       <SearchBar/>
       <div className="creative__cards">
         <div className="creative__card">
-          {/* <CreativeCard/> */}
+          <CreativeCard/>
         </div>
       </div>
     </div>

@@ -26,7 +26,8 @@ function SearchBar() {
           </div>
         ))}
       </div>
-    )}
+    );
+  };
 
   const filteredPosts = (query, posts) => {
     if (!query) {
@@ -61,44 +62,43 @@ function SearchBar() {
   };
 
   return (
-    <div className="creative">
-      <div className="creative__categories">
+    <div className="search">
+      <div className="search__categories">
         <p className="p--large">Tags</p>
-        <div className="creative__category-container">
+        <div className="search__category-container">
           {selectedPosts.map((post) => (
-            <div className="creative__category" key={post}>
+            <div className="search__category" key={post}>
               {post}
             </div>
           ))}
         </div>
-        <div className="creative__category-container">
+        <div className="search__category-container">
           {filteredPostNames.map((tagName) => (
-            <div className="creative__category" key={tagName}>
+            <div className="search__category" key={tagName}>
               {tagName}
-              <button className="creative__category--close" type="button" onClick={() => handleRemoveTag(tagName)}>
+              <button
+                className="search__category--close"
+                type="button"
+                onClick={() => handleRemoveTag(tagName)}
+              >
                 x
               </button>
             </div>
           ))}
         </div>
-        <form onSubmit={handleSubmit}>
-      <label htmlFor="header-search">
-        <span className="visually-hidden">Search blog posts</span>
-      </label>
-      <input
-        type="text"
-        id="header-search"
-        placeholder="Search blog posts"
-        name="s"
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button type="submit">Submit</button>
-      {query && <SearchSuggestions />}
-    </form>
+        </div>
+        <form className="search__form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search blog posts"
+            className="search__input"
+            name="s"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button className="search__button"type="submit">Submit</button>
+        </form>
       </div>
-    </div>
   );
 }
 
 export default SearchBar;
-

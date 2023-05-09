@@ -30,6 +30,7 @@ function Homepage() {
     return <div>Loading...</div>;
   }
 
+
   return (
     <main className="home">
       <section className="home__section home__hero">
