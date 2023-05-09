@@ -3,6 +3,7 @@ import "./Creative.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 function Creative() {
+  
 
   return (
     <div className="creative">

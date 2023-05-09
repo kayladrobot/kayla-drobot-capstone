@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // import styles
+import Quiz from "../Quiz/Quiz";
 import "./Navigation.scss";
 import logo from "../../assets/logo/Lookbook.svg";
 import menu from "../../assets/icons/menu-white.svg";
@@ -9,6 +10,7 @@ import menu from "../../assets/icons/menu-white.svg";
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -26,6 +28,14 @@ function Navigation() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+    const handleOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
 
   if(isMobile) {
   return (
@@ -54,12 +64,20 @@ function Navigation() {
           </Link>
         </nav>
         <div className="nav__btn-wrapper">
-          <Link to="/" className="nav__btn-container">
-            <button className="nav__btn--secondary">Take the Quiz</button>
-          </Link>
-          <Link to="/" className="nav__btn-container">
-            <button className="nav__btn--primary">Make a Match</button>
-          </Link>
+            <button className="nav__btn--secondary" onClick={handleOpen} >Take the Quiz</button>
+            {open && (
+            <Quiz
+              open={open}
+              handleClose={handleClose}
+            />
+          )}
+          <button className="nav__btn--primary" onClick={handleOpen} >Make a Match</button>
+            {open && (
+            <Quiz
+              open={open}
+              handleClose={handleClose}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -91,13 +109,21 @@ return (
         </Link>
       </nav>
       <div className="nav__btn-wrapper">
-        <Link to="/" className="nav__btn-container">
-          <button className="nav__btn--secondary">Take the Quiz</button>
-        </Link>
-        <Link to="/" className="nav__btn-container">
-          <button className="nav__btn--primary">Make a Match</button>
-        </Link>
-      </div>
+            <button className="nav__btn--secondary" onClick={handleOpen} >Take the Quiz</button>
+            {open && (
+            <Quiz
+              open={open}
+              handleClose={handleClose}
+            />
+          )}
+          <button className="nav__btn--primary" onClick={handleOpen} >Make a Match</button>
+            {open && (
+            <Quiz
+              open={open}
+              handleClose={handleClose}
+            />
+          )}
+        </div>
     </div>
   </div>
 );
