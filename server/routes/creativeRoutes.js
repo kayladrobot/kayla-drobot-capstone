@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const data = require('../data/data.json');
+const data = require('../data/creatives.json');
 
 router.get('/', (req, res) => {
-    fs.readFile('./data/data.json', (err, data) => {
+    fs.readFile('./data/creatives.json', (err, data) => {
       if (err) {
         console.log(err);
         res.status(500).send('Internal Server Error');
