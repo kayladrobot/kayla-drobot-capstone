@@ -4,6 +4,7 @@ const cors = require('cors');
 const creativeRoutes = require("./routes/creativeRoutes.js")
 const jobRoutes = require("./routes/creativeRoutes.js")
 const questionnaireRoutes = require("./routes/questionnaireRoutes.js")
+const answersRoutes = require("./routes/answersRoutes.js")
 const PORT = 8080
 
 // Middleware
@@ -23,8 +24,9 @@ app.use(function(req, res, next) {
 })
 
 app.use('/creatives', creativeRoutes);
-app.use('/quiz', questionnaireRoutes)
+app.use('/quiz', questionnaireRoutes);
 app.use('/jobs', jobRoutes);
+app.use('/answers', answersRoutes);
 
 
 app.listen(PORT, () => {

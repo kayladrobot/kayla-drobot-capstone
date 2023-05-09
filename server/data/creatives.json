@@ -4,9 +4,9 @@
     "name": "Sarah Patel",
     "bio": "Sarah is an accomplished painter with a passion for capturing the beauty of nature. Originally from the Pacific Northwest, Sarah draws inspiration from the lush forests and rugged coastline of her home region. Her work is characterized by detailed, realistic depictions of landscapes and seascapes, often featuring bold colors and dramatic lighting. Sarah's paintings have been displayed in galleries and exhibitions throughout the country, and she has won numerous awards for her skillful use of light and color. In addition to painting, Sarah is an avid hiker and outdoor enthusiast, often venturing into the wilderness to find new inspiration for her art. With her exceptional talent and unwavering dedication, Sarah is widely recognized as one of the most talented painters of her generation.",
     "email": "sarahpatel@gmail.com",
-    "location": "Vancouver",
-    "status": "Available",
-    "title": "Visual Artist",
+    "location": "Red",
+    "status": "Pizza",
+    "title": "Horse",
     "rate": "$40/hr",
     "profile": "/images/1/profile.jpg",
     "available": "Available",
@@ -21,7 +21,7 @@
           }
       }
     ],
-    "labels": ["designer", "illustrator", "visual artist", "branding", "typography"],
+    "labels": ["Pizza", "Red", "Horse", "typography"],
     "image": [
       {
         "0": "/images/1/4.jpg",
@@ -37,7 +37,7 @@
     "bio": "Meet James, an up-and-coming artist based in Vancouver. James's passion for art began at an early age, and he honed his skills by studying at some of the most prestigious art schools in the country. James's style is characterized by bold brushstrokes and vibrant colors, which he uses to capture the energy and spirit of the urban landscape. His work has been exhibited in galleries across the country, and he has won several awards for his unique and captivating paintings. When he's not in the studio, James enjoys exploring the city's art scene and drawing inspiration from the vibrant culture and diverse communities around him. With his talent and dedication, James is sure to make a lasting impact on the world of contemporary art.",
     "email": "jamesholt@gmail.com",
     "location": "Vancouver",
-    "status": "Partial",
+    "status": "Red",
     "title": "UI Designer",
     "rate": "$50/hr",
     "profile": "../public/images/2/profile.jpg",
@@ -53,7 +53,7 @@
         ]
       }
     ],
-    "labels": ["web design", "responsive design", "HTML", "CSS", "JavaScript", "designer", "ui designer", "ux designer"],
+    "labels": ["horse", "pizza", "HTML", "CSS", "JavaScript", "designer", "ui designer", "ux designer"],
     "image": [
       {
         "0": "../public/images/2/4.jpg",
@@ -117,7 +117,7 @@
         ]
       }
     ],
-    "labels": ["web design", "responsive design", "HTML", "CSS", "JavaScript", "designer", "ui designer", "ux designer"],
+    "labels": ["red", "pizza", "horse", "CSS", "JavaScript", "designer", "ui designer", "ux designer"],
     "image": [
       {
         "0": "../public/images/4/4.jpg",
