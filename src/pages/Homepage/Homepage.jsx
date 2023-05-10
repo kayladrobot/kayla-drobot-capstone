@@ -61,10 +61,10 @@ function Homepage() {
           <h2>Discover Vancouver Creatives</h2>
         </div>
         <div className="home__cards">
+          {/* <div className="home__jobs-card"></div>
           <div className="home__jobs-card"></div>
           <div className="home__jobs-card"></div>
-          <div className="home__jobs-card"></div>
-          <div className="home__jobs-card"></div>
+          <div className="home__jobs-card"></div> */}
         </div>
         <button className="home__btn--primary">View More Jobs</button>
       </section>

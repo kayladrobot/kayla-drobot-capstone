@@ -7,8 +7,17 @@
 @use "../../styles/partials/typography.scss" as *;
 
 .home {
+  background-color: $primary-color-black;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
   &__section {
     display: flex;
+    background-color: $primary-color-white;
+    // margin: 1.6rem;
+    border-radius: 2.5rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -21,6 +30,11 @@
       padding: 6.4rem 4.8rem;
     }
   }
+
+  &__creative {
+    padding: 4.8rem 0;
+  }
+
 
   &__copy-container {
     display: flex;
