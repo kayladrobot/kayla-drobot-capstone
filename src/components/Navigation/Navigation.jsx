@@ -17,6 +17,22 @@ function Navigation() {
   const [open, setOpen] = useState(false);
   const [showMatches, setShowMatches] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
 
   const handleSubmit = async (event) => {
@@ -61,7 +77,7 @@ function Navigation() {
 
   if(isMobile) {
   return (
-    <div className="nav">
+    <div className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav__wrapper">
         <div className="nav__header-wrapper">
           <Link to="/" className="nav__logo-container">
@@ -78,7 +94,7 @@ function Navigation() {
           <Link to="/creative" className="nav__item-wrapper">
             <h5 className="nav__item">Creatives</h5>
           </Link>
-          <Link to="/" className="nav__item-wrapper">
+          <Link to="/jobs" className="nav__item-wrapper">
             <h5 className="nav__item">Jobs</h5>
           </Link>
           <Link to="/" className="nav__item-wrapper">
@@ -124,7 +140,7 @@ return (
         <Link to="/creative" className="nav__item-wrapper">
           <h5 className="nav__item">Creatives</h5>
         </Link>
-        <Link to="/" className="nav__item-wrapper">
+        <Link to="/jobs" className="nav__item-wrapper">
           <h5 className="nav__item">Jobs</h5>
         </Link>
         <Link to="/" className="nav__item-wrapper">

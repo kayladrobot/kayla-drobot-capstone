@@ -21,6 +21,18 @@
     align-items: center;
   }
 
+  &__scrolled {
+    background-color: #ffffff; /* Change the background color when scrolled if needed */
+  }
+  
+  &__scrolled &__logo {
+    height: 60px; /* Set the minimum height for the logo when scrolled */
+  }
+  
+  // &__scrolled &__logo img {
+  //   max-height: 60px; /* Set the maximum height for the logo when scrolled */
+  // }
+
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -43,7 +55,11 @@
   }
 
   &__logo-container {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust the height as needed */
+    transition: height 0.3s ease; /* Add a smooth transition effect */
 
     @include tablet {
       width: 100%;
@@ -51,7 +67,8 @@
   }
 
   &__logo {
-    width: 100%;
+    max-height: 100px; /* Set the maximum height for the logo */
+    transition: max-height 0.3s ease;
   }
 
   &__menu-container {

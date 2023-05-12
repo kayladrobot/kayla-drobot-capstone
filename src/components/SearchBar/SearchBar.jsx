@@ -29,8 +29,8 @@ function SearchBar({ onSearch }) {
 
   return (
     <div className="search">
-      <h4>Tags</h4>
       <div className="search__category-container">
+      <p className="p--large">Tags</p>
         {activeFilter.map((filter) => (
           <div className="search__category" key={filter}>
             {filter}
