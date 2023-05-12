@@ -5,13 +5,16 @@ import { useState, useEffect } from "react";
 import apiData from "../../data/apiData";
 
 import CreativeCarousel from "../../components/CreativeCarousel/CreativeCarousel";
+import ok from "../../assets/images/illustrations/ok.svg"
+import flame from "../../assets/images/illustrations/flame.svg"
+import magnify from "../../assets/images/illustrations/magnify.svg"
+import eyes from "../../assets/images/illustrations/eyes.svg"
 import "./Homepage.scss";
 
 function Homepage() {
   const [loading, setLoading] = useState(true);
   const [creativeData, setCreativeData] = useState([]);
-
-  //   // -----  useEffect/ apiData -----
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,13 +33,12 @@ function Homepage() {
     return <div>Loading...</div>;
   }
 
-
   return (
     <main className="home">
       <section className="home__section home__hero">
         <div className="home__copy-container">
           <h1 className="home__copy-header">
-            Discover 📓 Your Perfect 👌 Creative Match💘 on LookBook:{" "}
+            Discover <img src={magnify} alt="perfect icon" className="home__illustration"/> Your Perfect <img src={ok} alt="perfect icon" className="home__illustration"/> Creative Match<img src={flame} alt="flame icon" className="home__illustration"/>on LookBook:{" "}
           </h1>
           <p>
             The Ultimate Creative Platform for Connection, Opportunities, and
@@ -46,6 +48,7 @@ function Homepage() {
         <button className="home__btn--primary">Make A Match</button>
       </section>
       <section className="home__section home__creative">
+      <img src={eyes} alt="cupid icon" className="submit__cupid-icon" />
         <div className="home__copy-container">
           <p className="p--large">Creatives</p>
           <h2>Discover Vancouver Creatives</h2>
@@ -58,20 +61,16 @@ function Homepage() {
       <section className="home__section home__jobs">
         <div className="home__copy-container">
           <p className="p--large">Creatives</p>
-          <h2>Discover Vancouver Creatives</h2>
+          <h2>Discover Vancouver Jobs</h2>
         </div>
         <div className="home__cards">
-          {/* <div className="home__jobs-card"></div>
-          <div className="home__jobs-card"></div>
-          <div className="home__jobs-card"></div>
-          <div className="home__jobs-card"></div> */}
         </div>
         <button className="home__btn--primary">View More Jobs</button>
       </section>
       <section className="home__section home__project">
         <div className="home__copy-container">
           <p className="p--large">Projects</p>
-          <h2>Discover Vancouver Creatives</h2>
+          <h2>Discover Vancouver Projects</h2>
         </div>
         <div className="home__cards">
           <div className="home__project-card"></div>

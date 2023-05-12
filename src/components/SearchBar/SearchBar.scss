@@ -8,7 +8,7 @@
 
 .search {
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr 2fr;
 padding: 1.6rem 1.6rem;
 border-bottom: .1rem solid $primary-color-black;
 
@@ -30,6 +30,12 @@ border-bottom: .1rem solid $primary-color-black;
     padding: 0.4rem;
     border: 0.1rem solid $primary-color-black;
     border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    align-items: center;
+    width: fit-content;
+    text-transform: uppercase;
   }
 
 &__visually-hidden {

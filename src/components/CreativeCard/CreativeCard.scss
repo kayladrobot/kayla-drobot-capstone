@@ -7,69 +7,59 @@
 @use "../../styles/partials/typography.scss" as *;
 
 .cardlist {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3.2rem;
-
-    &__header {
-        margin: 4.8rem 0;
-    }
-    
-&__container {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 1.6rem;
-  position: relative;
-  width: 100vw;
-  height: 100%;
-  padding: 3.2rem 1.6rem;
+  align-items: center;
+  margin-top: 3.2rem;
 
-  @include tablet {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  &__header {
+    margin: 4.8rem 0;
   }
-}
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 1.6rem;
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    padding: 3.2rem 1.6rem;
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
 
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 1.6rem;
   }
 
   &__card {
     width: auto;
     height: 100%;
     padding: 1.6rem;
-    border: .1rem solid $primary-color-black;
+    border: 0.1rem solid $primary-color-black;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 3.2rem;
+
+    @include tablet {
+      align-items: center;
+    }
   }
 
-  &__card:hover{
-    background-color: #efefef;
-    border: .1rem solid $primary-color-black;
-    border-radius: 1rem;
-  }
-
-
-  &__card-content {
-    width: 100%;
-    height: 100%;
-  }
-
-  &__card-copy {
+  &__copy {
     display: flex;
     flex-direction: column;
-    gap: .8rem;
-    text-align: center;
+    gap: 0.8rem;
   }
 
-  &__card--front{
+  &__card--front {
     height: 100%;
     width: 100%;
     backface-visibility: hidden;
@@ -92,10 +82,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     gap: 0.8rem;
-
   }
 
   &__category {
@@ -104,10 +91,26 @@
     border-radius: 0.5rem;
   }
 
+  &__img-container {
+    width: 100%;
+    height: 30rem;
+    margin-bottom: 2.4rem;
+
+    @include tablet {
+      height: 25rem;
+      width: 100%;
+    }
+  }
+
   &__card-img {
     width: 100%;
-    height: auto;
+    height: 30rem;
     flex-shrink: 0;
     object-fit: cover;
+
+    @include tablet {
+      height: 25rem;
+      object-fit: cover;
+    }
   }
 }

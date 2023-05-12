@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from "react";
-import "./Creative.scss";
 import apiData from "../../data/apiData";
 import CreativeCard from "../../components/CreativeCard/CreativeCard";
 import SearchBar from "../../components/SearchBar/SearchBar";

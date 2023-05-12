@@ -1,9 +1,13 @@
 import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// // ------ import api base URL -------
+import apiData from "../../data/apiData";
+
 // import styles
 import Quiz from "../Quiz/Quiz";
 import "./Navigation.scss";
+import MatchPage from "../MatchPage/MatchPage"
 import logo from "../../assets/logo/Lookbook.svg";
 import menu from "../../assets/icons/menu-white.svg";
 
@@ -11,6 +15,23 @@ function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [open, setOpen] = useState(false);
+  const [showMatches, setShowMatches] = useState(false);
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await apiData.post("/answers", {
+        answers: selectedAnswers,
+      });
+      const lastData = response.data.pop()
+      console.log(lastData)
+      setShowMatches(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -36,6 +57,7 @@ function Navigation() {
     const handleClose = () => {
       setOpen(false);
     };
+
 
   if(isMobile) {
   return (
@@ -73,9 +95,10 @@ function Navigation() {
           )}
           <button className="nav__btn--primary" onClick={handleOpen} >Make a Match</button>
             {open && (
-            <Quiz
+            <MatchPage
               open={open}
               handleClose={handleClose}
+              key={showMatches.id}
             />
           )}
         </div>
@@ -116,19 +139,19 @@ return (
               handleClose={handleClose}
             />
           )}
-          <button className="nav__btn--primary" onClick={handleOpen} >Make a Match</button>
-            {open && (
-            <Quiz
-              open={open}
-              handleClose={handleClose}
-            />
-          )}
+            <button onClick={handleSubmit} className="submit__button">
+                  View Matches
+                </button>
+        {showMatches && <MatchPage open={showMatches}
+        selectedAnswers={selectedAnswers}
+        handleClose={handleClose}
+       />}
         </div>
     </div>
   </div>
 );
 
 }
-
+// quizData={quizData}
 
 export default Navigation;
