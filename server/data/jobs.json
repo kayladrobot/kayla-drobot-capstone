@@ -9,7 +9,8 @@
         "start_date": "ASAP",
         "rate": "$60,000 - $80,000",
         "contact_email": "jobs@pixelperfect.com",
-        "labels": ["creative", "designer", "graphic design", "print", "digital"]
+        "labels": ["creative", "designer", "graphic design", "print", "digital"],
+        "image": "http://localhost:8000/images/jobs/design.svg"
       },
       {
         "id": 2,
@@ -21,7 +22,8 @@
         "start_date": "June 1, 2023",
         "rate": "$35/hour",
         "contact_email": "jobs@designco.com",
-        "labels": ["typography", "branding", "digital"]
+        "labels": ["typography", "branding", "digital"],
+        "image": "http://localhost:8000/images/jobs/text.svg"
       },
       {
         "id": 3,
@@ -33,7 +35,8 @@
         "start_date": "July 15, 2023",
         "rate": "$70,000 - $90,000",
         "contact_email": "jobs@webwizards.com",
-        "labels": ["web design", "responsive design", "HTML", "CSS", "JavaScript", "designer", "ui designer"]
+        "labels": ["web design", "responsive design", "HTML", "CSS", "JavaScript", "designer", "ui designer"],
+        "image": "http://localhost:8000/images/jobs/design.svg"
       },
       {
         "id": 4,
@@ -45,7 +48,8 @@
         "start_date": "August 1, 2023",
         "rate": "$80,000 - $100,000",
         "contact_email": "jobs@pixelplayground.com",
-        "labels": ["illustrator", "graphic designer", "designer"]
+        "labels": ["illustrator", "graphic designer", "designer"],
+        "image": "http://localhost:8000/images/jobs/write.svg"
       },
       {
         "id": 5,
@@ -57,7 +61,8 @@
         "start_date": "September 1, 2023",
         "rate": "$100,000 - $120,000",
         "contact_email": "jobs@digitaldreams.com",
-        "labels": ["painter", "illustrator", "visual artist"]
+        "labels": ["painter", "illustrator", "visual artist"],
+        "image": "http://localhost:8000/images/jobs/paint.svg"
       },
       {
         "id": 5,
@@ -69,7 +74,8 @@
         "start_date": "August 1, 2023",
         "rate": "$100,000 - $120,000",
         "contact_email": "jobs@colderpublishing.com",
-        "labels": ["designer", "illustrator", "visual artist"]
+        "labels": ["designer", "illustrator", "visual artist"],
+        "image": "http://localhost:8000/images/jobs/write.svg"
       }
     ]
   

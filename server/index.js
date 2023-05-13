@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 const creativeRoutes = require("./routes/creativeRoutes.js")
-const jobRoutes = require("./routes/creativeRoutes.js")
+const jobRoutes = require("./routes/jobRoutes.js")
 const questionnaireRoutes = require("./routes/questionnaireRoutes.js")
 const answersRoutes = require("./routes/answersRoutes.js")
-const PORT = 8080
+const PORT = 8000
 
 // Middleware
 app.use(express.json());
