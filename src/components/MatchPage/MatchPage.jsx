@@ -79,14 +79,18 @@ const MatchPage = ({ open, handleClose }) => {
     };
     fetchData();
   }, [answers, correctAnswers]);
+  
 
   return (
     <ThemeProvider theme={theme}>
       <Modal open={open}>
         <Box sx={boxStyle}>
-          <div className="match__close-icon" onClick={handleClose}>
-            <img src={closeicon} alt="close icon" />
-          </div>
+      <div className="match__container">
+        {/* Other content */}
+        <button className="match__close-icon" onClick={handleClose}>
+          x
+        </button>
+      </div>
           <div className="match">
             <h2>Matches</h2>
             {creatives.length > 0 &&

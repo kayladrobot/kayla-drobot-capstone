@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./JobCard.scss";
 
 const JobCard = ({ filteredData }) => {
@@ -6,7 +7,7 @@ const JobCard = ({ filteredData }) => {
     <main className="joblist">
     <div className="joblist__wrapper">
       {filteredData.map((item) => (
-        <div className="joblist__card">
+        <div className="joblist__card" key={item.id}>
           <img src={item.image} alt="" className="joblist__icon" />
           <div className="joblist__content">
           <div className="joblist__info">
@@ -24,7 +25,9 @@ const JobCard = ({ filteredData }) => {
                   <p className="joblist__category p--small">{label}</p>
                 ))}
               </div>
+              <Link to={item.email}>
               <button className="joblist__button">Apply</button>
+              </Link>
               </div>
             </div>
           </div>

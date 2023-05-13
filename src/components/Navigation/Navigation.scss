@@ -10,28 +10,16 @@
   display: flex;
   flex-direction: column;
   padding: 3.2rem 1.6rem;
-  border-bottom: .1rem solid $primary-color-black;
-  
+  border-bottom: 0.1rem solid $primary-color-black;
+
   @include tablet {
-    border-bottom: .1rem solid $primary-color-black;
+    border-bottom: 0.1rem solid $primary-color-black;
   }
 
   @include tablet {
     flex-direction: row;
     align-items: center;
   }
-
-  &__scrolled {
-    background-color: #ffffff; /* Change the background color when scrolled if needed */
-  }
-  
-  &__scrolled &__logo {
-    height: 60px; /* Set the minimum height for the logo when scrolled */
-  }
-  
-  // &__scrolled &__logo img {
-  //   max-height: 60px; /* Set the maximum height for the logo when scrolled */
-  // }
 
   &__wrapper {
     display: flex;
@@ -44,7 +32,6 @@
     }
   }
 
-  //header styles
   &__header-wrapper {
     display: flex;
     flex-direction: row;
@@ -55,20 +42,21 @@
   }
 
   &__logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px; /* Adjust the height as needed */
+    width: 22rem;
     transition: height 0.3s ease; /* Add a smooth transition effect */
 
     @include tablet {
-      width: 100%;
+      width: 50rem;
     }
   }
 
   &__logo {
-    max-height: 100px; /* Set the maximum height for the logo */
     transition: max-height 0.3s ease;
+    width: 22rem;
+
+    @include tablet {
+      width: 50rem; /* Set the maximum height for the logo */
+    }
   }
 
   &__menu-container {
@@ -76,7 +64,7 @@
     justify-content: center;
     grid-column: 1 / span 3;
     background-color: $primary-color-black;
-    padding: .4rem;
+    padding: 0.4rem;
     border-radius: 20rem;
 
     @include tablet {
@@ -96,21 +84,20 @@
 
   //nav styles
   &__container {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 3.2rem;
-      width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 3.2rem;
+    width: 100%;
 
-      @include tablet {
-        flex-direction: row;
-        align-items: center;
-      }
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+    }
   }
-
   &__container--open {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     gap: 1.6rem;
     padding: 3.2rem 0 0 0;
     border-top: 0.1rem solid #000000;
@@ -160,4 +147,15 @@
     @include button__nav($primary-color-white, $primary-color-black) {
     }
   }
+}
+
+
+.shrunk-logo {
+  width: 100%;
+  transition: transform 0.3s ease;
+  transform: scale(1);
+}
+
+.shrunk-logo.shrunk {
+  transform: scale(0.2);
 }

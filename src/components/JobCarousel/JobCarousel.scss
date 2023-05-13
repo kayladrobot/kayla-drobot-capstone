@@ -1,0 +1,82 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/button" as *;
+@use "../../styles/partials/input" as *;
+@use "../../styles/partials/typography.scss" as *;
+
+.jobcarousel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  position: relative;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+    padding: 3.2rem 3.2rem 0 3.2rem;
+    border-top: 0.1rem solid $primary-color-black;
+  }
+
+  &__card-wrapper {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+  }
+
+  &__card {
+    width: 100%;
+    position: relative;
+    perspective: 1000px;
+    height: 100%;
+  }
+
+  &__card-inner {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  &__card:hover &__card-inner {
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
+  }
+
+  &__card-front,
+  &__card-back{
+    display: flex;
+    height: 40rem;
+    flex-direction: column;
+    // justify-content: space-between;
+    border: .1rem solid $primary-color-black;
+    backface-visibility: hidden;
+    border-radius: 2rem;
+    padding: 1.6rem;
+    // position: absolute;
+    width: 100%;
+    background-color: $primary-color-white;
+  }
+
+  &__card-back {
+    transform: rotateY(180deg);
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__category {
+    padding: 0.4rem;
+    border: 0.1rem solid $primary-color-black;
+    border-radius: 0.5rem;
+  }
+}

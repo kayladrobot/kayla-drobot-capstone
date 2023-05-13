@@ -17,23 +17,27 @@ function Navigation() {
   const [open, setOpen] = useState(false);
   const [showMatches, setShowMatches] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
-  const [scrolled, setScrolled] = useState(false);
+  const [shrunkLogo, setShrunkLogo] = useState(false);
 
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const logoElement = document.querySelector(".nav__logo");
+    const scale = 1 - scrollY * 0.002; 
+    
+    if (scale > 0.8) {
+      logoElement.style.transform = `scale(${scale})`;
+    } else {
+      logoElement.style.transform = "scale(0.5)";
+    }
+  };
+  
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+  
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -77,7 +81,7 @@ function Navigation() {
 
   if(isMobile) {
   return (
-    <div className={`nav ${scrolled ? 'scrolled' : ''}`}>
+    <div className="nav">
       <div className="nav__wrapper">
         <div className="nav__header-wrapper">
           <Link to="/" className="nav__logo-container">
@@ -96,9 +100,6 @@ function Navigation() {
           </Link>
           <Link to="/jobs" className="nav__item-wrapper">
             <h5 className="nav__item">Jobs</h5>
-          </Link>
-          <Link to="/" className="nav__item-wrapper">
-            <h5 className="nav__item">Discover</h5>
           </Link>
         </nav>
         <div className="nav__btn-wrapper">
@@ -127,7 +128,7 @@ return (
     <div className="nav__wrapper">
       <div className="nav__header-wrapper">
         <Link to="/" className="nav__logo-container">
-          <img src={logo} alt="lookbook logo" className="nav__logo" />
+          <img src={logo} alt="lookbook logo" className={`nav__logo ${shrunkLogo ? "shrunk-logo" : ""}`} />
         </Link>
         <Link to="/" className="nav__menu-container">
           <img src={menu} alt="menu icon" className="nav__menu-icon" />
@@ -143,9 +144,6 @@ return (
         <Link to="/jobs" className="nav__item-wrapper">
           <h5 className="nav__item">Jobs</h5>
         </Link>
-        <Link to="/" className="nav__item-wrapper">
-          <h5 className="nav__item">Discover</h5>
-        </Link>
       </nav>
       <div className="nav__btn-wrapper">
             <button className="nav__btn--secondary" onClick={handleOpen} >Take the Quiz</button>
@@ -155,7 +153,7 @@ return (
               handleClose={handleClose}
             />
           )}
-            <button onClick={handleSubmit} className="submit__button">
+            <button onClick={handleSubmit} className="nav__btn--primary">
                   View Matches
                 </button>
         {showMatches && <MatchPage open={showMatches}

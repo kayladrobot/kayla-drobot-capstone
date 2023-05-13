@@ -16,7 +16,6 @@
   &__section {
     display: flex;
     background-color: $primary-color-white;
-    // margin: 1.6rem;
     border-radius: 2.5rem;
     flex-direction: column;
     justify-content: center;
@@ -31,8 +30,11 @@
     }
   }
 
-  &__creative {
+  &__creative, &__jobs {
+
+  @include tablet {
     padding: 4.8rem 0;
+  }   
   }
 
   &__illustration {

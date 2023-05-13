@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // // ------ import api base URL -------
 import apiData from "../../data/apiData";
@@ -72,7 +73,9 @@ function Homepage() {
         <div className="home__cards">
           <CreativeCarousel creativeData={creativeData}/>
         </div>
+        <Link to="/creative">
         <button className="home__btn--primary">View More Creatives</button>
+        </Link>
       </section>
       <section className="home__section home__jobs">
         <div className="home__copy-container">
@@ -83,21 +86,6 @@ function Homepage() {
         <JobCarousel jobData={jobData}/>
         </div>
         <button className="home__btn--primary">View More Jobs</button>
-      </section>
-      <section className="home__section home__project">
-        <div className="home__copy-container">
-          <p className="p--large">Projects</p>
-          <h2>Discover Vancouver Projects</h2>
-        </div>
-        <div className="home__cards">
-          <div className="home__project-card"></div>
-          <div className="home__project-card-container">
-            <div className="home__project-card"></div>
-            <div className="home__project-card"></div>
-            <div className="home__project-card"></div>
-          </div>
-          <button className="home__btn--primary">View More Projects</button>
-        </div>
       </section>
       <section className="home__section home__cta">
       <div className="home__copy-container">
