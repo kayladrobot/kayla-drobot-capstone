@@ -3,7 +3,8 @@ const app = express();
 const cors = require('cors');
 const creativeRoutes = require("./routes/creativeRoutes.js")
 const jobRoutes = require("./routes/jobRoutes.js")
-const questionnaireRoutes = require("./routes/questionnaireRoutes.js")
+const quizforcreativesRoutes = require("./routes/creativeQuizRoutes.js")
+const quizforemployeersRoutes = require("./routes/employeerQuizRoutes.js")
 const answersRoutes = require("./routes/answersRoutes.js")
 const PORT = 8000
 
@@ -24,7 +25,8 @@ app.use(function(req, res, next) {
 })
 
 app.use('/creatives', creativeRoutes);
-app.use('/quiz', questionnaireRoutes);
+app.use('/creative-quiz', quizforcreativesRoutes);
+app.use('/employeer-quiz', quizforemployeersRoutes);
 app.use('/jobs', jobRoutes);
 app.use('/answers', answersRoutes);
 
