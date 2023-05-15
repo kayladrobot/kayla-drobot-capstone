@@ -6,7 +6,7 @@
     "email": "sarahpatel@gmail.com",
     "location": "Red",
     "status": "Pizza",
-    "title": "Horse",
+    "title": "Painter/Visual Artist",
     "rate": "$40/hr",
     "profile": "http://localhost:8000/images/creatives/1/profile.jpg",
     "available": "Available",
@@ -16,8 +16,8 @@
           {
             "name": "University of California",
             "degree": "Bachelor of Arts",
-            "start-date": "2004",
-            "end-date": "2007"
+            "startdate": "2004",
+            "enddate": "2007"
           }
       }
     ],
@@ -47,8 +47,8 @@
           {
             "name": "Emily Carr University",
             "degree": "Bachelor of Communication Design",
-            "start-date": "2008",
-            "end-date": "2012"
+            "startdate": "2008",
+            "enddate": "2012"
           }
         ]
       }
@@ -79,8 +79,8 @@
           {
             "name": "University of British Columbia",
             "degree": "Bachelor of Arts",
-            "start-date": "2013",
-            "end-date": "2018"
+            "startdate": "2013",
+            "enddate": "2018"
           }
         ]
       }
@@ -111,8 +111,8 @@
           {
             "name": "Emily Carr University",
             "degree": "Bachelor of Communication Design",
-            "start-date": "2008",
-            "end-date": "2012"
+            "startdate": "2008",
+            "enddate": "2012"
           }
         ]
       }
@@ -143,8 +143,8 @@
           {
             "name": "Capilano University",
             "degree": "Bachelor of Design",
-            "start-date": "2009",
-            "end-date": "2013"
+            "startdate": "2009",
+            "enddate": "2013"
           }
         ]
       }
@@ -175,8 +175,8 @@
           {
             "name": "Capilano University",
             "degree": "Bachelor of Design",
-            "start-date": "2012",
-            "end-date": "2016"
+            "startdate": "2012",
+            "enddate": "2016"
           }
         ]
       }
