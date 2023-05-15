@@ -44,7 +44,7 @@ const MatchPage = ({open, handleClose}
   useEffect(() => {
     const fetchData = async () => {
       try { 
-        const response = await apiData.get("/quiz");
+        const response = await apiData.get("/quiz-for-employeers");
         const quiz = response.data;
         if (quiz.length > 0) {
           const answerStrings = quiz.map((q) => q.answers).flat();

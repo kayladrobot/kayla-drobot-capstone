@@ -72,6 +72,7 @@ function Navigation() {
 
   const handleOpen = () => {
     setOpen(true);
+    console.log(open)
   };
 
   const handleClose = () => {
