@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { theme, boxStyle } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -10,51 +11,43 @@ import "./MatchPage.scss";
 // // ------ import api base URL -------
 import apiData from "../../data/apiData";
 
-function compareCreative(creative, answers) {
-  let count = 0;
+// function compareCreative(creative, answers) {
+//   let count = 0;
 
-  function searchNestedArrays(obj) {
-    if (Array.isArray(obj)) {
-      for (let i = 0; i < obj.length; i++) {
-        searchNestedArrays(obj[i]);
-      }
-    } else if (typeof obj === "object" && obj !== null) {
-      for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
-          searchNestedArrays(obj[key]);
-        }
-      }
-    } else if (answers && answers.includes(obj)) {
-      count++;
-    }
-  }
+//   function searchNestedArrays(obj) {
+//     if (Array.isArray(obj)) {
+//       for (let i = 0; i < obj.length; i++) {
+//         searchNestedArrays(obj[i]);
+//       }
+//     } else if (typeof obj === "object" && obj !== null) {
+//       for (let key in obj) {
+//         if (obj.hasOwnProperty(key)) {
+//           searchNestedArrays(obj[key]);
+//         }
+//       }
+//     } else if (answers.includes(obj)) {
+//       count++;
+//     }
+//   }
 
-  searchNestedArrays(creative);
-  return count;
-}
+//   searchNestedArrays(creative);
+//   return count;
+// }
 
-const MatchPage = ({open, handleClose}
+
+const MatchPage = ({open, handleClose, quizData}
   ) => {
   const [answers, setAnswers] = useState([]);
   const [creatives, setCreatives] = useState([]);
-  const [correctAnswers, setCorrectAnswers] = useState([]);
   const [currentCreative, setCurrentCreative] = useState(0);
   
-
   useEffect(() => {
     const fetchData = async () => {
-      try { 
-        const response = await apiData.get("/quiz-for-employeers");
-        const quiz = response.data;
-        if (quiz.length > 0) {
-          const answerStrings = quiz.map((q) => q.answers).flat();
-          setAnswers(answerStrings);
-          const correctAnswerStrings = quiz
-            .filter((q) => q.correct === true)
-            .map((q) => q.answers)
-            .flat();
-          setCorrectAnswers(correctAnswerStrings);
-        }
+      try {
+        const response = await apiData.get("/answers");
+        const quiz = response.data.pop();
+        setAnswers(quiz);
+        console.log(answers)
         setCreatives([]);
       } catch (error) {
         console.error(error);
@@ -63,33 +56,46 @@ const MatchPage = ({open, handleClose}
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await apiData.get("/creatives");
-        const creatives = response.data;
-        // Sort creatives by score
-        const sortedCreatives = creatives.sort(
-          (a, b) =>
-            compareCreative(b, answers, correctAnswers) -
-            compareCreative(a, answers, correctAnswers)
-        );
-        setCreatives(sortedCreatives);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, [answers, correctAnswers]);
+const compareCreative = (creative) => {
+  let count = 0;
+  const answerStrings = answers.answers.map((q) => q.toLowerCase());
+  const creativeString = JSON.stringify(creative).toLowerCase();
+
+  for (let i = 0; i < answerStrings.length; i++) {
+    if (creativeString.includes(answerStrings[i])) {
+      count++;
+    }
+  }
+
+  return count;
+};
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await apiData.get("/creatives");
+      const fetchedCreatives = response.data;
+      const sortedCreatives = fetchedCreatives.sort(
+        (a, b) => compareCreative(b) - compareCreative(a)
+      );
+      setCreatives(sortedCreatives);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  fetchData();
+}, [answers]);
+
 
   return (
     <ThemeProvider theme={theme}>
       <Modal open={open}>
         <Box sx={boxStyle}>
           <div className="match__container">
-            <button className="match__close-icon" onClick={handleClose}>
-              <img src={closeicon} alt="Close" />
-            </button>
+            <div className="match__close-icon" onClick={handleClose}>
+              <img src={closeicon} alt="Close" /> 
+            </div>
           </div>
           <div className="match">
             <h2>Matches</h2>
@@ -99,6 +105,7 @@ const MatchPage = ({open, handleClose}
                 <div key={currentCreative} className="match__creative">
                   {creatives[currentCreative].image.map((image) => (
                     <img
+                      key={image[0]}
                       src={image[0]}
                       alt=""
                       className="match__creative-img"
@@ -124,7 +131,9 @@ const MatchPage = ({open, handleClose}
                       </div>
                     </div>
                     <div className="match__creative-cta">
-                      <p>See Profile →</p>
+                    <Link to={`/creatives/${creatives[currentCreative].id}`}>
+                      <p onClick={handleClose}>See Profile →</p>
+                    </Link>
                       <p>Contact →</p>
                     </div>
                   </div>
