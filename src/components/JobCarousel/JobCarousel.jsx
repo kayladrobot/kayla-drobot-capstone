@@ -1,40 +1,38 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./JobCarousel.scss";
 
 function JobData({ jobData }) {
   return (
     <div className="jobcarousel">
-      {jobData.slice(0, 4).map((item, index) => (
-        <React.Fragment key={index}>
-          <div className="jobcarousel__card">
-            <div className="jobcarousel__card-inner">
-              <div className="jobcarousel__card-front">
-                <div className="jobcarousel__content">
-                  <h4>{item.job_title}</h4>
-                  <p>{item.employer_name}</p>
-                  <p>{item.job_description}</p>
-                </div>
-                <div className="jobcarousel__categories">
-                  {item.labels.map((label) => (
-                    <p className="jobcarousel__category p--small">{label}</p>
-                  ))}
-                </div>
+      <div className="jobcarousel__wrapper">
+      {jobData.slice(0, 4).map((item) => (
+        <div className="jobcarousel__card" key={item.id}>
+          <img src={item.image} alt="" className="jobcarousel__icon" />
+          <div className="jobcarousel__content">
+          <div className="jobcarousel__info">
+            <p>{item.job_type}</p>
+            <p>{item.rate}</p>
+            </div>
+            <div className="jobcarousel__copy">
+            <h4>{item.job_title}</h4>
+              <p className="p--large">{item.employer_name}</p>
               </div>
-              <div className="jobcarousel__card-back">
-                <p>{item.type}</p>
-                <div className="jobcarousel__img-container">
-                  <img
-                    src={item.image}
-                    alt="test"
-                    className="jobcarousel__img"
-                  />
-                </div>
-                <p>{item.email}</p>
+              <p>{item.job_description}</p>
+              <div className="jobcarousel__bottom">
+              <div className="jobcarousel__categories">
+                {item.labels.map((label) => (
+                  <p className="jobcarousel__category p--small">{label}</p>
+                ))}
+              </div>
+              <Link to={item.email}>
+              <button className="jobcarousel__button">Apply</button>
+              </Link>
               </div>
             </div>
           </div>
-        </React.Fragment>
       ))}
+    </div>
     </div>
   );
 }

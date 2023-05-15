@@ -65,7 +65,7 @@ function Homepage() {
         <button className="home__btn--primary">Make A Match</button>
       </section>
       <section className="home__section home__creative">
-      <img src={eyes} alt="cupid icon" className="submit__cupid-icon" />
+      <img src={eyes} alt="eyes icon" className="home__illustration" />
         <div className="home__copy-container">
           <p className="p--large">Creatives</p>
           <h2>Discover Vancouver Creatives</h2>
@@ -73,13 +73,14 @@ function Homepage() {
         <div className="home__cards">
           <CreativeCarousel creativeData={creativeData}/>
         </div>
-        <Link to="/creative">
+        <Link to="/creatives">
         <button className="home__btn--primary">View More Creatives</button>
         </Link>
       </section>
       <section className="home__section home__jobs">
+        <img src={eyes} alt="eyes icon" className="home__illustration" />
         <div className="home__copy-container">
-          <p className="p--large">Creatives</p>
+          <p className="p--large">Job Board</p>
           <h2>Discover Vancouver Jobs</h2>
         </div>
         <div className="home__cards">
@@ -91,9 +92,11 @@ function Homepage() {
       <div className="home__copy-container">
         <p className="p--large">Lorem ipsum, dolor sit amet isicing.</p>
         <h3 className="home__copy-header">
-          Welcome to your new digital reality that which will rock your world
-          truly at all.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos animi voluptateme.
         </h3>
+        <div className="home__map">
+          <h2>Map Coming Soon</h2>
+        </div>
         </div>
         <div className="home__btn-wrapper">
           <button className="home__btn--secondary">Take The Quiz</button>

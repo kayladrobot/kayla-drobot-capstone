@@ -12,8 +12,8 @@
   gap: 1.6rem;
 
   @include tablet {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1.6rem;
     padding: 3.2rem 3.2rem 0 3.2rem;
     border-top: 0.1rem solid $primary-color-black;
@@ -71,6 +71,12 @@
 
   &__card-content {
     margin-top: 3.2rem;
+  }
+
+  &__card-copy {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
   }
 
   &__img-container {

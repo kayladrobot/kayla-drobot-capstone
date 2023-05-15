@@ -24,7 +24,6 @@ function Creative() {
     fetchData();
   }, []);
 
-
   const handleSearch = (keyword) => {
     const filtered = creativeData.filter((item) => {
       return (
