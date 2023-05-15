@@ -33,15 +33,17 @@ function compareCreative(creative, answers) {
   return count;
 }
 
-const MatchPage = ({ open, handleClose }) => {
+const MatchPage = ({open, handleClose}
+  ) => {
   const [answers, setAnswers] = useState([]);
   const [creatives, setCreatives] = useState([]);
   const [correctAnswers, setCorrectAnswers] = useState([]);
   const [currentCreative, setCurrentCreative] = useState(0);
+  
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
+      try { 
         const response = await apiData.get("/quiz");
         const quiz = response.data;
         if (quiz.length > 0) {
@@ -84,8 +86,10 @@ const MatchPage = ({ open, handleClose }) => {
     <ThemeProvider theme={theme}>
       <Modal open={open}>
         <Box sx={boxStyle}>
-          <div className="match__close-icon" onClick={handleClose}>
-            <img src={closeicon} alt="close icon" />
+          <div className="match__container">
+            <button className="match__close-icon" onClick={handleClose}>
+              <img src={closeicon} alt="Close" />
+            </button>
           </div>
           <div className="match">
             <h2>Matches</h2>

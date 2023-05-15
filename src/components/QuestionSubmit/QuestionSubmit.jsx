@@ -8,6 +8,7 @@ import Modal from "@mui/material/Modal";
 
 import closeicon from "../../assets/icons/close-24px.svg";
 import apiData from "../../data/apiData";
+import cupid from "../../assets/images/illustrations/cupid.svg"
 import "./QuestionSubmit.scss";
 
 const SubmitPage = ({ open, selectedAnswers, handleClose, quizData}) => {
@@ -35,8 +36,8 @@ const SubmitPage = ({ open, selectedAnswers, handleClose, quizData}) => {
               <img src={closeicon} alt="close icon" />
             </div>
             <form className="submit__wrapper">
+            <img src={cupid} alt="cupid icon" className="submit__cupid-icon" />
               <div className="submit__copy-container">
-                <h2>💘💘💘</h2>
                 <h2>Matching in Progress!</h2>
                 <p>
                   Thank you for completing the questionnaire. Our algorithm is

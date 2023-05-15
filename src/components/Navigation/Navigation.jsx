@@ -1,9 +1,13 @@
 import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// // ------ import api base URL -------
+import apiData from "../../data/apiData";
+
 // import styles
 import Quiz from "../Quiz/Quiz";
 import "./Navigation.scss";
+import MatchPage from "../MatchPage/MatchPage";
 import logo from "../../assets/logo/Lookbook.svg";
 import menu from "../../assets/icons/menu-white.svg";
 
@@ -11,10 +15,47 @@ function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [open, setOpen] = useState(false);
+  const [showMatches, setShowMatches] = useState(false);
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
+  const [shrunkLogo, setShrunkLogo] = useState(false);
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const logoElement = document.querySelector(".nav__logo");
+    const scale = 1 - scrollY * 0.002;
+
+    if (scale > 0.8) {
+      logoElement.style.transform = `scale(${scale})`;
+    } else {
+      logoElement.style.transform = "scale(0.5)";
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await apiData.post("/answers", {
+        answers: selectedAnswers,
+      });
+      const lastData = response.data.pop();
+      console.log(lastData);
+      setShowMatches(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,53 +70,105 @@ function Navigation() {
     };
   }, []);
 
-    const handleOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-  if(isMobile) {
+  const handleClose = () => {
+    console.log(open);
+    setOpen(false);
+  };
+
+  const handleMatchClose = () => {
+    setShowMatches(false)
+  }
+
+  if (isMobile) {
+    return (
+      <div className="nav">
+        <div className="nav__wrapper">
+          <div className="nav__header-wrapper">
+            <Link to="/" className="nav__logo-container">
+              <img src={logo} alt="lookbook logo" className="nav__logo" />
+            </Link>
+            <Link to="/" className="nav__menu-container" onClick={toggleMenu}>
+              <img src={menu} alt="menu icon" className="nav__menu-icon" />
+            </Link>
+          </div>
+        </div>
+
+        <div
+          className={`nav__container ${
+            !isOpen ? "nav__container--closed" : "nav__container--open"
+          }`}
+        >
+          <nav className="nav__content">
+            <Link to="/creatives" className="nav__item-wrapper">
+              <h5 className="nav__item">Creatives</h5>
+            </Link>
+            <Link to="/jobs" className="nav__item-wrapper">
+              <h5 className="nav__item">Jobs</h5>
+            </Link>
+          </nav>
+          <div className="nav__btn-wrapper">
+            <button className="nav__btn--secondary" onClick={handleOpen}>
+              Take the Quiz
+            </button>
+            {open && <Quiz open={open} handleClose={handleClose} />}
+            <button className="nav__btn--primary" onClick={handleSubmit}>
+              Make a Match
+            </button>
+            {showMatches && (
+              <MatchPage
+                open={showMatches}
+                handleClose={handleMatchClose}
+                key={showMatches.id}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="nav">
       <div className="nav__wrapper">
         <div className="nav__header-wrapper">
           <Link to="/" className="nav__logo-container">
-            <img src={logo} alt="lookbook logo" className="nav__logo" />
+            <img
+              src={logo}
+              alt="lookbook logo"
+              className={`nav__logo ${shrunkLogo ? "shrunk-logo" : ""}`}
+            />
           </Link>
-          <Link to="/" className="nav__menu-container" onClick={toggleMenu}>
+          <Link to="/" className="nav__menu-container">
             <img src={menu} alt="menu icon" className="nav__menu-icon" />
           </Link>
         </div>
       </div>
 
-      <div className={`nav__container ${!isOpen ? "nav__container--closed" : "nav__container--open"}`}>
+      <div className={`nav__container`}>
         <nav className="nav__content">
-          <Link to="/creative" className="nav__item-wrapper">
+          <Link to="/creatives" className="nav__item-wrapper">
             <h5 className="nav__item">Creatives</h5>
           </Link>
-          <Link to="/" className="nav__item-wrapper">
+          <Link to="/jobs" className="nav__item-wrapper">
             <h5 className="nav__item">Jobs</h5>
-          </Link>
-          <Link to="/" className="nav__item-wrapper">
-            <h5 className="nav__item">Discover</h5>
           </Link>
         </nav>
         <div className="nav__btn-wrapper">
-            <button className="nav__btn--secondary" onClick={handleOpen} >Take the Quiz</button>
-            {open && (
-            <Quiz
-              open={open}
-              handleClose={handleClose}
-            />
-          )}
-          <button className="nav__btn--primary" onClick={handleOpen} >Make a Match</button>
-            {open && (
-            <Quiz
-              open={open}
-              handleClose={handleClose}
+          <button className="nav__btn--secondary" onClick={handleOpen}>
+            Take the Quiz
+          </button>
+          {open && <Quiz open={open} handleClose={handleClose} />}
+          <button onClick={handleSubmit} className="nav__btn--primary">
+            View Matches
+          </button>
+          {showMatches && (
+            <MatchPage
+              open={showMatches}
+              selectedAnswers={selectedAnswers}
+              handleClose={handleMatchClose}
             />
           )}
         </div>
@@ -83,52 +176,6 @@ function Navigation() {
     </div>
   );
 }
-return (
-  <div className="nav">
-    <div className="nav__wrapper">
-      <div className="nav__header-wrapper">
-        <Link to="/" className="nav__logo-container">
-          <img src={logo} alt="lookbook logo" className="nav__logo" />
-        </Link>
-        <Link to="/" className="nav__menu-container">
-          <img src={menu} alt="menu icon" className="nav__menu-icon" />
-        </Link>
-      </div>
-    </div>
-
-    <div className={`nav__container`}>
-      <nav className="nav__content">
-        <Link to="/creative" className="nav__item-wrapper">
-          <h5 className="nav__item">Creatives</h5>
-        </Link>
-        <Link to="/" className="nav__item-wrapper">
-          <h5 className="nav__item">Jobs</h5>
-        </Link>
-        <Link to="/" className="nav__item-wrapper">
-          <h5 className="nav__item">Discover</h5>
-        </Link>
-      </nav>
-      <div className="nav__btn-wrapper">
-            <button className="nav__btn--secondary" onClick={handleOpen} >Take the Quiz</button>
-            {open && (
-            <Quiz
-              open={open}
-              handleClose={handleClose}
-            />
-          )}
-          <button className="nav__btn--primary" onClick={handleOpen} >Make a Match</button>
-            {open && (
-            <Quiz
-              open={open}
-              handleClose={handleClose}
-            />
-          )}
-        </div>
-    </div>
-  </div>
-);
-
-}
-
+// quizData={quizData}
 
 export default Navigation;

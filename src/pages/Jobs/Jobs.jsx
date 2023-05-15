@@ -1,21 +1,20 @@
 import { React, useEffect, useState } from "react";
-import "./Creative.scss";
 import apiData from "../../data/apiData";
-import CreativeCard from "../../components/CreativeCard/CreativeCard";
+import JobCard from "../../components/JobCard/JobCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
-function Creative() {
+function Jobs() {
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [creativeData, setCreativeData] = useState([]);
+  const [jobData, setJobData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiData.get("/creatives");
-        const creatives = response.data;
-        setCreativeData(creatives);
-        setFilteredData(creatives)
+        const response = await apiData.get("/jobs");
+        const jobs = response.data;
+        setJobData(jobs);
+        setFilteredData(jobs)
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -24,31 +23,32 @@ function Creative() {
     fetchData();
   }, []);
 
+
   const handleSearch = (keyword) => {
-    const filtered = creativeData.filter((item) => {
+    const filtered = jobData.filter((item) => {
       return (
-        item.title.toLowerCase().includes(keyword.toLowerCase()) ||
-        item.bio.toLowerCase().includes(keyword.toLowerCase()) || 
+        item.employer_name.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.job_title.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.job_description.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.rate.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.job_type.toLowerCase().includes(keyword.toLowerCase()) ||
         item.labels.some((label) => label.includes(keyword.toLowerCase()))
       );
     });
-
+  
     setFilteredData(filtered);
   };
-
-  console.log(creativeData)
-
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="creative">
+    <div className="jobs">
       <SearchBar filteredData={filteredData} onSearch={handleSearch}/>
-      <CreativeCard filteredData={filteredData}/>
+      <JobCard filteredData={filteredData}/>
     </div>
   );
 }
 
-export default Creative;
+export default Jobs;

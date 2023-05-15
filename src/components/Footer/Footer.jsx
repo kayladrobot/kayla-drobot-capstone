@@ -22,9 +22,6 @@ function Footer() {
             <Link to="/" className="footer__item-wrapper">
               <h5 className="footer__item">Jobs</h5>
             </Link>
-            <Link to="/" className="footer__item-wrapper">
-              <h5 className="footer__item">Discover</h5>
-            </Link>
           </div>
           <div className="footer__btn-wrapper">
             <Link to="/" className="footer__item-wrapper">
@@ -35,14 +32,6 @@ function Footer() {
             </Link>
           </div>
         </nav>
-        {/* <div className="footer__btn-wrapper">
-          <Link to="/" className="footer__btn-container">
-            <button className="footer__btn--secondary">Take the Quiz</button>
-          </Link>
-          <Link to="/" className="footer__btn-container">
-            <button className="footer__btn--primary">Make a Match</button>
-          </Link>
-        </div> */}
         <div className="footer__social-wrapper">
           <img
             src={instagram}

@@ -24,6 +24,14 @@
         cursor: pointer;
     }
 
+    &__cupid-icon {
+        width: 20rem;
+    }
+
+    &__copy-container {
+        width: 60%;
+    }
+
     &__button-wrapper{
         display: flex;
         gap: 1.6rem;
@@ -36,7 +44,6 @@
 
     &__button--close {
         @include button($primary-color-white, $primary-color-black){
-
         }
     }
 }
