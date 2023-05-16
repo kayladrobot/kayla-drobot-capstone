@@ -1,0 +1,10 @@
+.modal {
+    text-align: center;
+
+    &__answers {
+        display: flex;
+        flex-direction: row;
+        gap: 1.6rem;
+        flex-wrap: wrap;
+    }
+}

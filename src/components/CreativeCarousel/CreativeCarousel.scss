@@ -10,11 +10,13 @@
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  width: 100%;
+  padding: 3.2rem;
 
   @include tablet {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 1.6rem;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    // gap: 1.6rem;
     padding: 3.2rem 3.2rem 0 3.2rem;
     border-top: 0.1rem solid $primary-color-black;
   }
@@ -22,7 +24,7 @@
   &__card-wrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 30rem;
     height: fit-content;
     padding: 1.6rem 1.6rem;
     border-radius: 2rem;
@@ -113,3 +115,37 @@
     border-radius: 0.5rem;
   }
 }
+
+.alice-carousel {
+  padding: 1.6rem;
+  overflow: hidden;
+  width: 100%;
+  overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.alice-carousel__dots {
+  width: 100%;
+  display: none;
+}
+
+.alice-carousel__next-btn-item, .alice-carousel__prev-btn-item{
+  color: $primary-color-black;
+  border: .1rem solid $primary-color-black;
+  padding: .4rem .8rem;
+  border-radius: 20rem;
+}
+
+.alice-carousel__next-btn-item-wrapper, .alice-carousel__prev-btn-item-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alice-carousel__next-btn{
+  display: flex!important;
+  order: 1;
+}
+

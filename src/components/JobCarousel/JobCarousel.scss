@@ -82,3 +82,17 @@
       }
     
 }
+
+.alice-carousel__stage-item {
+  width: unset!important;
+}
+
+.alice-carousel__stage-item.__active.__target {
+  width: unset!important;
+}
+
+.alice-carousel__stage-item.__active {
+  width: unset;
+}
+
+

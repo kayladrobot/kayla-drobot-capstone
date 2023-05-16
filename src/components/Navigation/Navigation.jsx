@@ -18,6 +18,8 @@ function Navigation() {
   const [showMatches, setShowMatches] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [shrunkLogo, setShrunkLogo] = useState(false);
+  const [quizTaken, setQuizTaken] = useState(false); // New state variable
+
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -78,6 +80,7 @@ function Navigation() {
   const handleClose = () => {
     console.log(open);
     setOpen(false);
+    setQuizTaken(true);
   };
 
   const handleMatchClose = () => {
@@ -90,19 +93,19 @@ function Navigation() {
         <div className="nav__wrapper">
           <div className="nav__header-wrapper">
             <Link to="/" className="nav__logo-container">
-              <img src={logo} alt="lookbook logo" className="nav__logo" />
+              <img
+                src={logo}
+                alt="lookbook logo"
+                className={`nav__logo ${shrunkLogo ? "shrunk-logo" : ""}`}
+              />
             </Link>
-            <Link to="/" className="nav__menu-container" onClick={toggleMenu}>
+            <Link to="/" className="nav__menu-container">
               <img src={menu} alt="menu icon" className="nav__menu-icon" />
             </Link>
           </div>
         </div>
-
-        <div
-          className={`nav__container ${
-            !isOpen ? "nav__container--closed" : "nav__container--open"
-          }`}
-        >
+    
+        <div className={`nav__container`}>
           <nav className="nav__content">
             <Link to="/creatives" className="nav__item-wrapper">
               <h5 className="nav__item">Creatives</h5>
@@ -112,18 +115,20 @@ function Navigation() {
             </Link>
           </nav>
           <div className="nav__btn-wrapper">
-            <button className="nav__btn--secondary" onClick={handleOpen}>
-              Take the Quiz
+            <button className="nav__btn--primary" onClick={handleOpen}>
+            Match with Creatives
             </button>
             {open && <Quiz open={open} handleClose={handleClose} />}
-            <button className="nav__btn--primary" onClick={handleSubmit}>
-              Make a Match
-            </button>
+            {quizTaken && ( // Show "View Matches" button only if quizTaken is true
+              <button onClick={handleSubmit} className="nav__btn--secondary">
+                View Matches
+              </button>
+            )}
             {showMatches && (
               <MatchPage
                 open={showMatches}
+                selectedAnswers={selectedAnswers}
                 handleClose={handleMatchClose}
-                key={showMatches.id}
               />
             )}
           </div>
@@ -158,13 +163,15 @@ function Navigation() {
           </Link>
         </nav>
         <div className="nav__btn-wrapper">
-          <button className="nav__btn--secondary" onClick={handleOpen}>
-            Take the Quiz
+          <button className="nav__btn--primary" onClick={handleOpen}>
+          Match with Creatives
           </button>
           {open && <Quiz open={open} handleClose={handleClose} />}
-          <button onClick={handleSubmit} className="nav__btn--primary">
-            View Matches
-          </button>
+          {quizTaken && ( // Show "View Matches" button only if quizTaken is true
+              <button onClick={handleSubmit} className="nav__btn--secondary">
+                View Matches
+              </button>
+            )}
           {showMatches && (
             <MatchPage
               open={showMatches}
