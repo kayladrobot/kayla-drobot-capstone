@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { theme, boxStyle } from "../../theme/theme";
+import { theme, endStyle } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -79,91 +79,103 @@ const MatchPage = ({ open, handleClose, quizData }) => {
   return (
     <ThemeProvider theme={theme}>
       <Modal open={open}>
-        <Box sx={boxStyle} className="match__wrapper">
-          <div className="match__container">
+        <Box sx={endStyle}>
+          <div className="match__wrapper">
             <div className="match__close-icon" onClick={handleClose}>
               <img src={closeicon} alt="Close" />
             </div>
-          </div>
-          {currentCreative === creatives.length - 1 && endMessage && (
-            <div className="match__end-message">
-              <div className="match__end-copy">
-                <h3>
-                  Congratulations! You have viewed all the matches.
-                  <p>Feel free to explore more artists on our homepage.</p>
-                </h3>
+            <div className="match">
+              <div className="match__main">
+                <h2>Matches</h2>
+                {currentCreative === creatives.length - 1 && endMessage && (
+                  <div className="match__end-message">
+                    <div className="match__end-copy">
+                      <p>
+                        Congratulations! You have viewed all the matches.Feel
+                        free to explore more artists on our homepage.
+                      </p>
+                    </div>
+                    <Link to="/" onClick={handleClose}>
+                      <button className="match__button">
+                        Back to Homepage
+                      </button>
+                    </Link>
+                  </div>
+                )}
               </div>
-              <Link to="/" onClick={handleClose}>
-              <button className="match__button">Back to Homepage</button>
-              </Link>
-            </div>
-          )}
-          <div className="match">
-            <h2>Matches</h2>
-            {creatives.length > 0 &&
-              currentCreative >= 0 &&
-              currentCreative < creatives.length && (
-                <div key={currentCreative} className="match__creative">
-                  {creatives[currentCreative].image.map((image, index) => (
-                    <img
-                      key={index}
-                      src={image[0]}
-                      alt=""
-                      className="match__creative-img"
-                    />
-                  ))}
-                  <div className="match__creative-content">
-                    <div className="match__creative-copy">
-                      <h3>{creatives[currentCreative].name}</h3>
-                      <p>{creatives[currentCreative].title}</p>
-                    </div>
-                    <div className="match__categories">
-                      <div className="match__category-row">
-                        {creatives[currentCreative].labels
-                          .slice(0, 4)
-                          .map((label, index) => (
-                            <p className="match__category p--small" key={index}>
-                              {label}
-                            </p>
-                          ))}
+              {creatives.length > 0 &&
+                currentCreative >= 0 &&
+                currentCreative < creatives.length && (
+                  <div key={currentCreative} className="match__creative">
+                    {creatives[currentCreative].image.map((image, index) => (
+                      <img
+                        key={index}
+                        src={image[0]}
+                        alt=""
+                        className="match__creative-img"
+                      />
+                    ))}
+                    <div className="match__creative-content">
+                      <div className="match__creative-copy">
+                        <h3>{creatives[currentCreative].name}</h3>
+                        <p>{creatives[currentCreative].title}</p>
                       </div>
-                      <div className="match__category-row">
-                        {creatives[currentCreative].labels
-                          .slice(5, 10)
-                          .map((label, index) => (
-                            <p className="match__category p--small" key={index}>
-                              {label}
-                            </p>
-                          ))}
+                      <div className="match__categories">
+                        <div className="match__category-row">
+                          {creatives[currentCreative].labels
+                            .slice(0, 4)
+                            .map((label, index) => (
+                              <p
+                                className="match__category p--small"
+                                key={index}
+                              >
+                                {label}
+                              </p>
+                            ))}
+                        </div>
+                        <div className="match__category-row">
+                          {creatives[currentCreative].labels
+                            .slice(5, 10)
+                            .map((label, index) => (
+                              <p
+                                className="match__category p--small"
+                                key={index}
+                              >
+                                {label}
+                              </p>
+                            ))}
+                        </div>
                       </div>
-                    </div>
-                    <div className="match__creative-cta">
-                      <Link to={`/creatives/${creatives[currentCreative].id}`}>
-                        <p
-                          className="match__creative-link"
-                          onClick={handleClose}
+                      <div className="match__creative-cta">
+                        <Link
+                          to={`/creatives/${creatives[currentCreative].id}`}
                         >
-                          See Profile →
-                        </p>
-                      </Link>
-                      <Link to={`mailto:${creatives[currentCreative].email}`}>
-                        <p className="match__creative-link">Contact →</p>
-                      </Link>
+                          <p
+                            className="match__creative-link"
+                            onClick={handleClose}
+                          >
+                            See Profile →
+                          </p>
+                        </Link>
+                        <Link to={`mailto:${creatives[currentCreative].email}`}>
+                          <p className="match__creative-link">Contact →</p>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            <div className="match__button-container">
-              {currentCreative > 0 && (
-                <button className="match__button-back" onClick={handleBack}>
-                  Back
-                </button>
-              )}
-              {currentCreative < creatives.length - 1 && (
-                <button className="match__button-next" onClick={handleNext}>
-                  Next
-                </button>
-              )}
+                )}
+              <div className="match__button-container">
+                {currentCreative > 0 && (
+                  <button className="match__button-back" onClick={handleBack}>
+                    Back
+                  </button>
+                )}
+                {currentCreative < creatives.length - 1 && (
+                  <button className="match__button-next" onClick={handleNext}>
+                    Next
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </Box>

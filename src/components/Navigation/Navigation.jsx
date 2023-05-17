@@ -90,19 +90,19 @@ function Navigation() {
         <div className="nav__wrapper">
           <div className="nav__header-wrapper">
             <Link to="/" className="nav__logo-container">
-              <img
-                src={logo}
-                alt="lookbook logo"
-                className={`nav__logo ${shrunkLogo ? "shrunk-logo" : ""}`}
-              />
+              <img src={logo} alt="lookbook logo" className="nav__logo" />
             </Link>
-            <Link to="/" className="nav__menu-container">
+            <Link to="/" className="nav__menu-container" onClick={toggleMenu}>
               <img src={menu} alt="menu icon" className="nav__menu-icon" />
             </Link>
           </div>
         </div>
-    
-        <div className={`nav__container`}>
+
+        <div
+          className={`nav__container ${
+            !isOpen ? "nav__container--closed" : "nav__container--open"
+          }`}
+        >
           <nav className="nav__content">
             <Link to="/creatives" className="nav__item-wrapper">
               <h5 className="nav__item">Creatives</h5>

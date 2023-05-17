@@ -51,12 +51,11 @@
     width: 22rem;
 
     @include tablet {
-      width: 22rem; /* Set the maximum height for the logo */
+      width: 22rem;
     }
     @include desktop {
-      width: 40rem; /* Set the maximum height for the logo */
+      width: 40rem;
     }
-
   }
 
   &__menu-container {
@@ -82,7 +81,6 @@
     }
   }
 
-  //nav styles
   &__container {
     display: flex;
     flex-direction: column;
@@ -98,7 +96,6 @@
   &__container--open {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
     padding: 3.2rem 0 0 0;
     border-top: 0.1rem solid #000000;
     margin-top: 1.6rem;
@@ -118,11 +115,8 @@
 
   &__content {
     display: flex;
-    border-top: .1rem solid $primary-color-black;
     flex-direction: column;
-    gap: .8rem;
-    padding-top: 1.6rem;
-    margin-top: 1.6rem;
+    gap: 0.8rem;
 
     @include tablet {
       flex-direction: row;
@@ -155,7 +149,6 @@
     }
   }
 }
-
 
 .shrunk-logo {
   width: 100%;

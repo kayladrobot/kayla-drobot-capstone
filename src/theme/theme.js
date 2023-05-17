@@ -13,8 +13,6 @@ export const theme = createTheme({
 
 export const boxStyle = {
   position: "absolute",
-//   display: "flex",
-//   justifyContent: "center",
   top: { mobile: "50%", tablet: "50%" },
   left: "50%",
   padding: "0",
@@ -22,10 +20,9 @@ export const boxStyle = {
   bgcolor: "background.paper",
   boxShadow: 24,
   px: { mobile: 2, tablet: 8 },
-//   pl: { tablet: 8 },
   py: { mobile: 3, tablet: 2 },
   width: { mobile: "100%", tablet: "90%" },
-  height: { mobile: "100%", tablet: "75%" },
+  height: { mobile: "auto", tablet: "75%" },
   borderRadius: { tablet: 1 },
 };
 
