@@ -25,8 +25,8 @@ app.use(function(req, res, next) {
 })
 
 app.use('/creatives', creativeRoutes);
-app.use('/creative-quiz', quizforcreativesRoutes);
-app.use('/employeer-quiz', quizforemployeersRoutes);
+app.use('/quiz-for-creatives', quizforcreativesRoutes);
+app.use('/quiz-for-employeers', quizforemployeersRoutes);
 app.use('/jobs', jobRoutes);
 app.use('/answers', answersRoutes);
 

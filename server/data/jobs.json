@@ -21,7 +21,7 @@
         "job_type": "Freelance",
         "start_date": "June 1, 2023",
         "rate": "$35/hour",
-        "contact_email": "jobs@designco.com",
+        "email": "jobs@designco.com",
         "labels": ["typography", "branding", "digital"],
         "image": "http://localhost:8000/images/jobs/text.svg"
       },

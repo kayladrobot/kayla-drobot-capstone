@@ -4,6 +4,20 @@ const fs = require('fs');
 const uniqid = require('uniqid');
 const data = require('../data/answers.json');
 
+
+router.get('/', (req, res) => {
+  fs.readFile('./data/answers.json', (err, data) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    } else {
+      console.log("Success")
+      console.log("Data:", data);
+      res.send(data);
+    }
+  });
+});
+
 router.post('/', (req, res) => {
   const answers = JSON.parse(JSON.stringify(data));
   const newAnswer = {
