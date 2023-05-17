@@ -7,6 +7,9 @@
 @use "../../styles/partials/typography.scss" as *;
 
 .submit {
+    display: flex;
+    flex-direction: column;
+    gap: 6.4rem;
 
     &__wrapper {
         display: flex;
@@ -25,7 +28,7 @@
     }
 
     &__cupid-icon {
-        width: 20rem;
+        width: 15rem;
     }
 
     &__copy-container {

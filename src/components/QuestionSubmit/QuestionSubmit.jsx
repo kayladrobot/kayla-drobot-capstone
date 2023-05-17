@@ -20,7 +20,6 @@ const SubmitPage = ({ open, selectedAnswers, handleClose, quizData}) => {
       const response = await apiData.post("/answers", {
         answers: selectedAnswers,
       });
-      console.log(response.data);
       setShowMatches(true);
     } catch (error) {
       console.error(error);
@@ -60,7 +59,8 @@ const SubmitPage = ({ open, selectedAnswers, handleClose, quizData}) => {
       {showMatches && <MatchPage open={showMatches}
         selectedAnswers={selectedAnswers}
         handleClose={handleClose}
-        quizData={quizData} />}
+        quizData={quizData} 
+        matches={showMatches}/>}
     </ThemeProvider>
   );
 };

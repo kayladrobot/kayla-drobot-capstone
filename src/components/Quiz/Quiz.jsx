@@ -18,7 +18,7 @@ function Quiz({ open, handleClose }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiData.get("/quiz");
+        const response = await apiData.get("/quiz-for-employeers");
         const quizResponse = response.data;
         setquizData(quizResponse);
         setCurrentQuestion(1);
