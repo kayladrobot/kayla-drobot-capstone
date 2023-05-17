@@ -1,14 +1,14 @@
 [
     {
-      "question": "What is your favorite color?",
-      "answers": ["Red", "Green", "Blue", "Yellow"]
+      "question": "Which creative field best aligns with your needs?",
+      "answers": ["Visual Artist", "Graphic Designer", "Illustrator", "UI Designer", "Web Developer", "Photographer"]
     },
     {
-      "question": "What is your favorite animal?",
-      "answers": ["Dog", "Cat", "Bird", "Horse"]
+      "question": "What availability are you looking for?",
+      "answers": ["Full-time", "Part-time", "Freelance"]
     },
     {
-      "question": "What is your favorite food?",
-      "answers": ["Pizza", "Burger", "Sushi", "Thai"]
+      "question": "What type of service are you looking for?",
+      "answers": ["Branding", "Logo Design", "Graphic Design", "Web Design", "Illustration", "Artwork", "Web Development"]
     }
   ]
