@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import "./CreativeCard.scss";
 
 function CreativeCard({ filteredData }) {
-  console.log(filteredData.id);
   return (
     <div className="cardlist">
       <div className="cardlist__container">
         {filteredData.map((item) => (
-          <Link to={`/creatives/${item.id}`}>
-            <div className="cardlist__card" key={item.id}>
-              <div key={item.id}>
+          <Link to={`/creatives/${item.id}`} key={item.id}>
+            <div className="cardlist__card">
+              <div>
                 <div className="cardlist__img-container">
                   {item.image.map((image, index) => (
                     <img

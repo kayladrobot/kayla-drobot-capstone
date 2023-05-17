@@ -15,7 +15,7 @@ function Creative() {
         const response = await apiData.get("/creatives");
         const creatives = response.data;
         setCreativeData(creatives);
-        setFilteredData(creatives)
+        setFilteredData(creatives);
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -28,7 +28,7 @@ function Creative() {
     const filtered = creativeData.filter((item) => {
       return (
         item.title.toLowerCase().includes(keyword.toLowerCase()) ||
-        item.bio.toLowerCase().includes(keyword.toLowerCase()) || 
+        item.bio.toLowerCase().includes(keyword.toLowerCase()) ||
         item.labels.some((label) => label.includes(keyword.toLowerCase()))
       );
     });
@@ -36,17 +36,14 @@ function Creative() {
     setFilteredData(filtered);
   };
 
-  console.log(creativeData)
-
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="creative">
-      <SearchBar filteredData={filteredData} onSearch={handleSearch}/>
-      <CreativeCard filteredData={filteredData}/>
+      <SearchBar filteredData={filteredData} onSearch={handleSearch} />
+      <CreativeCard filteredData={filteredData} />
     </div>
   );
 }

@@ -33,17 +33,31 @@ function Footer() {
           </div>
         </nav>
         <div className="footer__social-wrapper">
+        <a
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
           <img
             src={instagram}
             alt="instagram icon"
             className="footer__social-icon"
           />
-          <img
-            src={twitter}
-            alt="twitter icon"
-            className="footer__social-icon"
-          />
-          <img src={email} alt="email icon" className="footer__social-icon" />
+          </a>
+          <a
+            href="https://twitter.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={twitter}
+              alt="twitter icon"
+              className="footer__social-icon"
+            />
+          </a>
+          <a href="mailto:lookbook@gmail.com">
+            <img src={email} alt="email icon" className="footer__social-icon" />
+          </a>
         </div>
       </div>
       <div className="footer__bottom">

@@ -25,7 +25,7 @@ const JobCard = ({ filteredData }) => {
                   <p className="joblist__category p--small">{label}</p>
                 ))}
               </div>
-              <Link to={item.email}>
+              <Link to={`mailto:${item.email}`}>
               <button className="joblist__button">Apply</button>
               </Link>
               </div>

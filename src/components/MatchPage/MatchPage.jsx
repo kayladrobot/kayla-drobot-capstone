@@ -11,43 +11,19 @@ import "./MatchPage.scss";
 // // ------ import api base URL -------
 import apiData from "../../data/apiData";
 
-// function compareCreative(creative, answers) {
-//   let count = 0;
-
-//   function searchNestedArrays(obj) {
-//     if (Array.isArray(obj)) {
-//       for (let i = 0; i < obj.length; i++) {
-//         searchNestedArrays(obj[i]);
-//       }
-//     } else if (typeof obj === "object" && obj !== null) {
-//       for (let key in obj) {
-//         if (obj.hasOwnProperty(key)) {
-//           searchNestedArrays(obj[key]);
-//         }
-//       }
-//     } else if (answers.includes(obj)) {
-//       count++;
-//     }
-//   }
-
-//   searchNestedArrays(creative);
-//   return count;
-// }
-
-
-const MatchPage = ({open, handleClose, quizData}
-  ) => {
+const MatchPage = ({ open, handleClose, quizData }) => {
   const [answers, setAnswers] = useState([]);
   const [creatives, setCreatives] = useState([]);
   const [currentCreative, setCurrentCreative] = useState(0);
-  
+  const [endMessage, setEndMessage] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await apiData.get("/answers");
         const quiz = response.data.pop();
         setAnswers(quiz);
-        console.log(answers)
+        console.log(answers);
         setCreatives([]);
       } catch (error) {
         console.error(error);
@@ -56,102 +32,138 @@ const MatchPage = ({open, handleClose, quizData}
     fetchData();
   }, []);
 
-const compareCreative = (creative) => {
-  let count = 0;
-  const answerStrings = answers.answers.map((q) => q.toLowerCase());
-  const creativeString = JSON.stringify(creative).toLowerCase();
+  const compareCreative = (creative) => {
+    let count = 0;
+    const answerStrings = answers.answers.map((q) => q.toLowerCase());
+    const creativeString = JSON.stringify(creative).toLowerCase();
 
-  for (let i = 0; i < answerStrings.length; i++) {
-    if (creativeString.includes(answerStrings[i])) {
-      count++;
+    for (let i = 0; i < answerStrings.length; i++) {
+      if (creativeString.includes(answerStrings[i])) {
+        count++;
+      }
     }
-  }
 
-  return count;
-};
-
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await apiData.get("/creatives");
-      const fetchedCreatives = response.data;
-      const sortedCreatives = fetchedCreatives.sort(
-        (a, b) => compareCreative(b) - compareCreative(a)
-      );
-      setCreatives(sortedCreatives);
-    } catch (error) {
-      console.error(error);
-    }
+    return count;
   };
 
-  fetchData();
-}, [answers]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await apiData.get("/creatives");
+        const fetchedCreatives = response.data;
+        const sortedCreatives = fetchedCreatives.sort(
+          (a, b) => compareCreative(b) - compareCreative(a)
+        );
+        setCreatives(sortedCreatives);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
+    fetchData();
+  }, [answers]);
+
+  const handleEndMessage = () => {
+    setEndMessage(true);
+  };
+
+  const handleBack = () => {
+    setCurrentCreative(currentCreative - 1);
+  };
+
+  const handleNext = () => {
+    setCurrentCreative(currentCreative + 1);
+    handleEndMessage();
+  };
 
   return (
     <ThemeProvider theme={theme}>
       <Modal open={open}>
-        <Box sx={boxStyle}>
+        <Box sx={boxStyle} className="match__wrapper">
           <div className="match__container">
             <div className="match__close-icon" onClick={handleClose}>
-              <img src={closeicon} alt="Close" /> 
+              <img src={closeicon} alt="Close" />
             </div>
           </div>
+          {currentCreative === creatives.length - 1 && endMessage && (
+            <div className="match__end-message">
+              <div className="match__end-copy">
+                <h3>
+                  Congratulations! You have viewed all the matches.
+                  <p>Feel free to explore more artists on our homepage.</p>
+                </h3>
+              </div>
+              <Link to="/" onClick={handleClose}>
+              <button className="match__button">Back to Homepage</button>
+              </Link>
+            </div>
+          )}
           <div className="match">
             <h2>Matches</h2>
             {creatives.length > 0 &&
               currentCreative >= 0 &&
               currentCreative < creatives.length && (
                 <div key={currentCreative} className="match__creative">
-                  {creatives[currentCreative].image.map((image) => (
+                  {creatives[currentCreative].image.map((image, index) => (
                     <img
-                      key={image[0]}
+                      key={index}
                       src={image[0]}
                       alt=""
                       className="match__creative-img"
                     />
                   ))}
-                  <div className="match__creative-copy">
-                    <h3>{creatives[currentCreative].name}</h3>
-                    <p>{creatives[currentCreative].title}</p>
+                  <div className="match__creative-content">
+                    <div className="match__creative-copy">
+                      <h3>{creatives[currentCreative].name}</h3>
+                      <p>{creatives[currentCreative].title}</p>
+                    </div>
                     <div className="match__categories">
                       <div className="match__category-row">
                         {creatives[currentCreative].labels
                           .slice(0, 4)
-                          .map((label) => (
-                            <p className="match__category p--small">{label}</p>
+                          .map((label, index) => (
+                            <p className="match__category p--small" key={index}>
+                              {label}
+                            </p>
                           ))}
                       </div>
                       <div className="match__category-row">
                         {creatives[currentCreative].labels
                           .slice(5, 10)
-                          .map((label) => (
-                            <p className="match__category p--small">{label}</p>
+                          .map((label, index) => (
+                            <p className="match__category p--small" key={index}>
+                              {label}
+                            </p>
                           ))}
                       </div>
                     </div>
                     <div className="match__creative-cta">
-                    <Link to={`/creatives/${creatives[currentCreative].id}`}>
-                      <p onClick={handleClose}>See Profile →</p>
-                    </Link>
-                      <p>Contact →</p>
+                      <Link to={`/creatives/${creatives[currentCreative].id}`}>
+                        <p
+                          className="match__creative-link"
+                          onClick={handleClose}
+                        >
+                          See Profile →
+                        </p>
+                      </Link>
+                      <Link to={`mailto:${creatives[currentCreative].email}`}>
+                        <p className="match__creative-link">Contact →</p>
+                      </Link>
                     </div>
                   </div>
                 </div>
               )}
             <div className="match__button-container">
-              <button
-                className="match__button-back"
-                onClick={() => setCurrentCreative(currentCreative - 1)}
-              >
-                Back
-              </button>
-              <button
-                className="match__button-next"
-                onClick={() => setCurrentCreative(currentCreative + 1)}
-              >
-                Next
-              </button>
+              {currentCreative > 0 && (
+                <button className="match__button-back" onClick={handleBack}>
+                  Back
+                </button>
+              )}
+              {currentCreative < creatives.length - 1 && (
+                <button className="match__button-next" onClick={handleNext}>
+                  Next
+                </button>
+              )}
             </div>
           </div>
         </Box>

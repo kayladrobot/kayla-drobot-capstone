@@ -7,6 +7,9 @@
 @use "../../styles/partials/typography.scss" as *;
 
 .submit {
+    display: flex;
+    flex-direction: column;
+    gap: 6.4rem;
 
     &__wrapper {
         display: flex;

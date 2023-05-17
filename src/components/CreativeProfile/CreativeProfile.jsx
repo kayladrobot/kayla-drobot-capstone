@@ -94,15 +94,17 @@ const CreativeProfile = () => {
                 className="profile__social-icon"
               />
             </Link>
-            <Link to="https://www.instagram.com/">
+            <Link to="https://twitter.com/">
               <img
+                target="_blank"
                 src={twitter}
                 alt="twitter icon"
                 className="profile__social-icon"
               />
             </Link>
-            <Link to={currentCreative.email}>
+            <Link to={`mailto:${currentCreative.email}`}>
               <img
+                target="_blank"
                 src={email}
                 alt="email icon"
                 className="profile__social-icon"

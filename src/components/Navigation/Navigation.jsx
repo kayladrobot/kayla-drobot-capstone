@@ -48,7 +48,6 @@ function Navigation() {
         answers: selectedAnswers,
       });
       const lastData = response.data.pop();
-      console.log(lastData);
       setShowMatches(true);
     } catch (error) {
       console.error(error);
@@ -74,11 +73,9 @@ function Navigation() {
 
   const handleOpen = () => {
     setOpen(true);
-    console.log(open)
   };
 
   const handleClose = () => {
-    console.log(open);
     setOpen(false);
     setQuizTaken(true);
   };

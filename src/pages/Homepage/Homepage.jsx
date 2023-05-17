@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Map from "../../components/Map/Map";
 
 // // ------ import api base URL -------
 import apiData from "../../data/apiData";
@@ -12,6 +11,7 @@ import ok from "../../assets/images/illustrations/ok.svg";
 import flame from "../../assets/images/illustrations/flame.svg";
 import magnify from "../../assets/images/illustrations/magnify.svg";
 import eyes from "../../assets/images/illustrations/eyes.svg";
+import bell from "../../assets/images/illustrations/bell.svg";
 import "./Homepage.scss";
 
 function Homepage() {
@@ -77,8 +77,7 @@ function Homepage() {
             on LookBook:{" "}
           </h1>
           <p>
-            The Ultimate Creative Platform for Connection, Opportunities, and
-            Collaboration
+            The Ultimate Platform for Employeers to Match with Creatives in Vancouver B.C.
           </p>
         </div>
         <button className="home__btn--primary">Match with Creatives</button>
@@ -92,12 +91,11 @@ function Homepage() {
         <div className="home__cards">
           <CreativeCarousel creativeData={creativeData} />
         </div>
-        <Link to="/creatives">
-          <button className="home__btn--primary">View More Creatives</button>
-        </Link>
+          <button className="home__btn--primary">
+          <Link to="/creatives">View More Creatives</Link></button>
       </section>
       <section className="home__section home__jobs">
-        <img src={eyes} alt="eyes icon" className="home__illustration" />
+        <img src={bell} alt="eyes icon" className="home__illustration" />
         <div className="home__copy-container">
           <p className="p--large">Job Board</p>
           <h2>Discover Vancouver Jobs</h2>
@@ -105,25 +103,8 @@ function Homepage() {
         <div className="home__cards">
           <JobCarousel jobData={jobData} />
         </div>
-        <button className="home__btn--primary">View More Jobs</button>
-      </section>
-      <section className="home__section home__cta">
-        <div className="home__copy-container">
-          <p className="p--large">Discover the Creative Hub:</p>
-          <h3 className="home__copy-header">
-            Explore a Map of Talented Creatives{" "}
-            <img src={ok} alt="perfect icon" className="home__illustration" />
-            in Your City.
-          </h3>
-          <div>
-            <Map markers={markers}/>
-          </div>
-        </div>
-        <div className="home__btn-wrapper">
-          <Link to="/creatives">
-            <button className="home__btn--primary">View More Creatives</button>
-          </Link>
-        </div>
+        <button className="home__btn--primary">
+        <Link to="/jobs">View More Jobs</Link></button>
       </section>
     </main>
   );
