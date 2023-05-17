@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import close from "../../assets/icons/close-24px.svg";
-import { theme, boxStyle } from "../../theme/theme";
+import { theme, endStyle } from "../../theme/theme";
 import { ThemeProvider } from "@mui/material";
 import "./QuestionPage.scss";
 
@@ -18,7 +18,7 @@ const QuestionPage = ({
   return (
     <ThemeProvider theme={theme}>
       <Modal open={open}>
-        <Box sx={{ ...boxStyle }}>
+        <Box sx={endStyle}>
           {quizData[currentQuestion - 1] && (
             <div className="modal">
               <div className="modal__top-bar">
